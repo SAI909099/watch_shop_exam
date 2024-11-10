@@ -67,3 +67,5 @@ class ActivateUserView(APIView):
             return Response({"message": "User successfully verified!"})
         raise AuthenticationFailed('The link is invalid or expired.')
 
+
+
