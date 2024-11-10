@@ -17,7 +17,7 @@ redis_url = urlparse(settings.CELERY_BROKER_URL)
 
 r = redis.StrictRedis(host=redis_url.hostname, port=redis_url.port, db=int(redis_url.path.lstrip('/')))
 
-
+# --------------------Register---------------------------------------------------
 class RegisterUserModelSerializer(serializers.ModelSerializer):
     confirm_email = serializers.EmailField(write_only=True)
     confirm_password = serializers.CharField(write_only=True)
@@ -33,11 +33,9 @@ class RegisterUserModelSerializer(serializers.ModelSerializer):
         }
 
     def validate(self, data):
-        # Validate email and confirm_email match
         if data['email'] != data['confirm_email']:
             raise serializers.ValidationError("Email addresses do not match.")
 
-        # Validate password and confirm_password match
         if data['password'] != data['confirm_password']:
             raise serializers.ValidationError("Passwords do not match.")
 
@@ -57,6 +55,7 @@ class RegisterUserModelSerializer(serializers.ModelSerializer):
             phone_number=validated_data.get('phone_number'),
         )
         return user
+# ------------------------------------Token----------------------------------
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -65,10 +64,11 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['email'] = user.email
         return token
 
+# -----------------------------------Login-------------------------------------
 
-class LoginUserModelSerializer(Serializer):
-    email = EmailField()
-    password = CharField(write_only=True)
+class LoginUserModelSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
 
     def validate(self, attrs):
         email = attrs.get('email')
@@ -82,12 +82,12 @@ class LoginUserModelSerializer(Serializer):
         user = authenticate(username=email, password=password)
 
         if user is None:
-            # If the users fails to authenticate, increase the count of failed attempts
             current_attempts = int(attempts) if attempts else 0
-            r.setex(redis_key, timedelta(minutes=5), current_attempts + 1)  # Block for 5 minutes
+            r.setex(redis_key, timedelta(minutes=5), current_attempts + 1)
             raise ValidationError("Invalid email or password")
 
-            # If authentication is successful, reset the attempt counter
         r.delete(redis_key)
-        attrs['users'] = user
+        attrs['user'] = user
         return attrs
+
+# ---------------------------------------------------------------------------
