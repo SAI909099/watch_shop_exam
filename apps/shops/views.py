@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from drf_spectacular.utils import extend_schema
+from rest_framework.generics import ListCreateAPIView
 
-# Create your views here.
+from apps.shops.models import Product
+from apps.shops.serializers import ProductModelSerializer
+
+
+@extend_schema(tags=['books'])
+class ProductListAPIView(ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductModelSerializer
+

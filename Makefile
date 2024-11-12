@@ -10,3 +10,7 @@ celery:
 
 flush:
 	python3 manage.py flush --no-input
+
+loaddata:
+	python3 manage.py loaddata country
+
