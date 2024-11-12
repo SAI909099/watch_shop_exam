@@ -1,7 +1,9 @@
 from django.contrib.auth.models import AbstractUser
-from django.db.models import DateField, CharField, EmailField, BooleanField
+from django.db.models import DateField, CharField, EmailField, BooleanField, ForeignKey, Model, CASCADE, \
+    PositiveIntegerField, RESTRICT
 
 from .manager import CustomUserManager
+from ..shared.models import TimeBasedModel
 
 
 class User(AbstractUser):
@@ -16,5 +18,24 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
+
+class Country(Model):
+    name = CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
+class Address(TimeBasedModel):
+    first_name = CharField(max_length=255)
+    last_name = CharField(max_length=255)
+    country = ForeignKey(Country, CASCADE)
+    address_line_1 = CharField(max_length=255)
+    address_line_2 = CharField(max_length=255, null=True, blank=True)
+    city = CharField(max_length=255)
+    state = CharField(max_length=255)
+    postal_code = PositiveIntegerField(default=0)
+    phone_number = CharField(max_length=15)
+    user = ForeignKey('users.User', RESTRICT)
 
 

@@ -4,13 +4,15 @@ from urllib.parse import urlparse
 from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
-from rest_framework.fields import EmailField, CharField
-from rest_framework.serializers import Serializer
+from rest_framework.fields import EmailField, CharField, HiddenField, CurrentUserDefault, IntegerField, BooleanField
+from rest_framework.serializers import Serializer, ModelSerializer
 
 from root import settings
-from .models import User  # Import your custom User model
+from .models import User, Address, Country  # Import your custom User model
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 import redis
+
+from ..shops.models import Product
 
 redis_url = urlparse(settings.CELERY_BROKER_URL)
 
@@ -46,7 +48,7 @@ class RegisterUserModelSerializer(serializers.ModelSerializer):
         validated_data.pop('confirm_email')
         validated_data.pop('confirm_password')
 
-        user = User.objects.create(
+        user = User.objects.create_user(
             email=validated_data['email'],
             password=validated_data['password'],
             first_name=validated_data['first_name'],
@@ -79,7 +81,7 @@ class LoginUserModelSerializer(serializers.Serializer):
         if attempts and int(attempts) >= 5:
             raise ValidationError("Too many failed login attempts. Try again after 5 minutes.")
 
-        user = authenticate(username=email, password=password)
+        user = authenticate(email=email, password=password)
 
         if user is None:
             current_attempts = int(attempts) if attempts else 0
@@ -90,4 +92,52 @@ class LoginUserModelSerializer(serializers.Serializer):
         attrs['user'] = user
         return attrs
 
-# ---------------------------------------------------------------------------
+# ---------------------------Wishlist ------------------------------------------------
+
+class WishlistSerializer(serializers.ModelSerializer):
+    product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), many=True)
+
+    class Meta:
+        model = User
+        fields = ['wishlist', 'product']
+
+    def update(self, instance, validated_data):
+        product = validated_data.get('product', [])
+        for product in product:
+            if product in instance.wishlist.all():
+                instance.wishlist.remove(product)
+            else:
+                instance.wishlist.add(product)
+        return instance
+
+
+# ------------------------------------------------------------------
+class UserModelSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
+
+# ----------------------------------------------------------------
+
+
+class CountryModelSerializer(ModelSerializer):
+    class Meta:
+        model = Country
+        fields = '__all__'
+
+
+class AddressListModelSerializer(ModelSerializer):
+    user = HiddenField(default=CurrentUserDefault())
+    postal_code = IntegerField(default=123400, min_value=0)
+    has_shipping_address = BooleanField(write_only=True)
+    has_billing_address = BooleanField(write_only=True)
+
+    class Meta:
+        model = Address
+        exclude = ()
+
+    def to_representation(self, instance):
+        repr = super().to_representation(instance)
+        repr['country'] = CountryModelSerializer(instance.country).data
+        return repr
+

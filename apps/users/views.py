@@ -1,17 +1,18 @@
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.http import urlsafe_base64_decode
 from drf_spectacular.utils import extend_schema
-from rest_framework import status
+from rest_framework import status, mixins
 from rest_framework.exceptions import AuthenticationFailed
-from rest_framework.generics import CreateAPIView, GenericAPIView
-from rest_framework.permissions import AllowAny
+from rest_framework.generics import CreateAPIView, GenericAPIView, ListCreateAPIView, ListAPIView
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from .email_service import ActivationEmailService
-from .models import User
-from .serializers import RegisterUserModelSerializer, LoginUserModelSerializer
+from .models import User, Address, Country
+from .serializers import RegisterUserModelSerializer, LoginUserModelSerializer, WishlistSerializer, \
+    AddressListModelSerializer, CountryModelSerializer
 
 
 @extend_schema(tags=['Login_Register'])
@@ -67,6 +68,65 @@ class ActivateUserView(APIView):
             return Response({"message": "User successfully verified!"})
         raise AuthenticationFailed('The link is invalid or expired.')
 
+# ----------------------------------wishlist------------------
+
+@extend_schema(tags=['wishlist'])
+class WishlistAPIView(APIView):
+    def get(self, request):
+        user = request.user
+        serializer = WishlistSerializer(user)
+        return Response(serializer.data)
+
+    def post(self, request):
+        user = request.user
+        serializer = WishlistSerializer(data=request.data, instance=user)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message': 'Wishlist updated successfully'}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# ---------------------------
+
+@extend_schema(tags=['address'])
+class AddressListCreateAPIView(ListCreateAPIView):
+    queryset = Address.objects.all()
+    serializer_class = AddressListModelSerializer
+    permission_classes = IsAuthenticated,
+
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
+
+
+@extend_schema(tags=['address'])
+class AddressDestroyUpdateAPIView(mixins.UpdateModelMixin, mixins.DestroyModelMixin, GenericAPIView):
+    queryset = Address.objects.all()
+    serializer_class = AddressListModelSerializer
+    permission_classes = IsAuthenticated,
+
+    def get_queryset(self):
+        qs = super().get_queryset().filter(user=self.request.user)
+        self._can_delete = qs.count() > 1
+        return qs
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if self._can_delete:
+            _user: User = request.user
+            if instance.id in (_user.billing_address_id, _user.shipping_address_id):
+                return Response({"message": "maxsus addresslar"})
+
+            self.perform_destroy(instance)
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({"message": "ozi 1ta qoldi!"})
 
 
 
+
+@extend_schema(tags=['address'])
+class CountryListAPIView(ListAPIView):
+    queryset = Country.objects.all()
+    serializer_class = CountryModelSerializer
+    authentication_classes = ()
