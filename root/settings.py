@@ -29,12 +29,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'users',
-    'shops',
+    'apps.users',
+    'apps.shops',
 
     'rest_framework',
     'drf_spectacular',
     'rest_framework_simplejwt',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
