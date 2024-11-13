@@ -1,6 +1,7 @@
 from datetime import timedelta
 from urllib.parse import urlparse
 
+from allauth.account.utils import user_email
 from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
@@ -92,32 +93,7 @@ class LoginUserModelSerializer(serializers.Serializer):
         attrs['user'] = user
         return attrs
 
-# ---------------------------Wishlist ------------------------------------------------
-
-class WishlistSerializer(serializers.ModelSerializer):
-    product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), many=True)
-
-    class Meta:
-        model = User
-        fields = ['wishlist', 'product']
-
-    def update(self, instance, validated_data):
-        product = validated_data.get('product', [])
-        for product in product:
-            if product in instance.wishlist.all():
-                instance.wishlist.remove(product)
-            else:
-                instance.wishlist.add(product)
-        return instance
-
-
-# ------------------------------------------------------------------
-class UserModelSerializer(ModelSerializer):
-    class Meta:
-        model = User
-        fields = '__all__'
-
-# ----------------------------------------------------------------
+# ---------------------------Address ------------------------------------------------
 
 
 class CountryModelSerializer(ModelSerializer):
@@ -129,8 +105,7 @@ class CountryModelSerializer(ModelSerializer):
 class AddressListModelSerializer(ModelSerializer):
     user = HiddenField(default=CurrentUserDefault())
     postal_code = IntegerField(default=123400, min_value=0)
-    has_shipping_address = BooleanField(write_only=True)
-    has_billing_address = BooleanField(write_only=True)
+
 
     class Meta:
         model = Address

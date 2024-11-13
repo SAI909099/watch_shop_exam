@@ -5,7 +5,7 @@ from apps.shops.models import Product
 from apps.shops.serializers import ProductModelSerializer
 
 
-@extend_schema(tags=['books'])
+@extend_schema(tags=['product'])
 class ProductListAPIView(ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductModelSerializer
