@@ -1,17 +1,19 @@
 from django.urls import path
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from .views import RegisterCreateAPIView, LoginAPIView, ActivateUserView, WishlistAPIView, AddressListCreateAPIView
+from .views import RegisterCreateAPIView, LoginAPIView, AddressListCreateAPIView, \
+    AddressDestroyUpdateAPIView, CountryListAPIView
 
 urlpatterns = [
     path('register/', RegisterCreateAPIView.as_view(), name='register'),
     path('login/', LoginAPIView.as_view(), name = 'login' ),
 
-    path('address/', AddressListCreateAPIView.as_view()),
+    path('address/', AddressListCreateAPIView.as_view(), name = 'address'),
+    path('address-update', AddressDestroyUpdateAPIView.as_view(), name='address_update'),
+    path('country-list', CountryListAPIView.as_view(), name='country'),
 
-    path('activate/<uidb64>/<token>', ActivateUserView.as_view(), name='activate'),
+    # path('activate/<uidb64>/<token>', ActivateUserView.as_view(), name='activate'),
 
-    path('wishlist/', WishlistAPIView.as_view(), name='wishlist'),
+    # path('wishlist/', WishlistAPIView.as_view(), name='wishlist'),
 
 
 

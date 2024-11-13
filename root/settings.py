@@ -169,7 +169,7 @@ SOCIALACCOUNT_PROVIDERS = {
     },
     'facebook': {
         'APP': {
-            'client_id': '',
+            'client_id': '', #todo facebook tel ga sms kelmagani sababli ishlamayabdi
             'secret': '',
             'key': ''
         }

@@ -27,15 +27,14 @@ class Country(Model):
 
 
 class Address(TimeBasedModel):
+    user = ForeignKey('User', RESTRICT)
     first_name = CharField(max_length=255)
     last_name = CharField(max_length=255)
-    country = ForeignKey(Country, CASCADE)
+    phone_number = CharField(max_length=15)
     address_line_1 = CharField(max_length=255)
     address_line_2 = CharField(max_length=255, null=True, blank=True)
     city = CharField(max_length=255)
-    state = CharField(max_length=255)
     postal_code = PositiveIntegerField(default=0)
-    phone_number = CharField(max_length=15)
-    user = ForeignKey('users.User', RESTRICT)
+    country = ForeignKey(Country, CASCADE)
 
 
