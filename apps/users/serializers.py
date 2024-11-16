@@ -1,19 +1,19 @@
 from datetime import timedelta
 from urllib.parse import urlparse
 
-from allauth.account.utils import user_email
+import redis
 from django.contrib.auth import authenticate
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
-from rest_framework.fields import EmailField, CharField, HiddenField, CurrentUserDefault, IntegerField, BooleanField
-from rest_framework.serializers import Serializer, ModelSerializer
+from rest_framework.fields import HiddenField, CurrentUserDefault, IntegerField
+from rest_framework.serializers import ModelSerializer
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from root import settings
-from .models import User, Address, Country  # Import your custom User model
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-import redis
-
-from ..shops.models import Product
+from .models import User, Address, Country, ShippingMethod, Card  # Import your custom User model
 
 redis_url = urlparse(settings.CELERY_BROKER_URL)
 
@@ -58,6 +58,17 @@ class RegisterUserModelSerializer(serializers.ModelSerializer):
             phone_number=validated_data.get('phone_number'),
         )
         return user
+
+#---------------------------------User info -------------------------------
+
+class UserInfoSerializer(ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = [
+            "first_name" , "last_name" , "email"
+        ]
+
 # ------------------------------------Token----------------------------------
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -116,3 +127,68 @@ class AddressListModelSerializer(ModelSerializer):
         repr['country'] = CountryModelSerializer(instance.country).data
         return repr
 
+# ---------------------------password reset -----------------------
+
+class ForgotPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate_email(self, email):
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            raise serializers.ValidationError("No user found with this email address.")
+        return email
+
+    def save(self):
+        request = self.context.get('request')
+        user = User.objects.get(email=self.validated_data['email'])
+        token = PasswordResetTokenGenerator().make_token(user)
+        uid = urlsafe_base64_encode(force_bytes(user.pk))
+
+        # Generate reset link
+        reset_link = f"{request._current_scheme_host}/reset-password/{uid}/{token}/"
+
+        # Send reset email (you can adjust email settings in your project)
+        user.email_user(
+            subject="Password Reset Request",
+            message=f"Click the link below to reset your password:\n{reset_link}",
+            from_email=None  # Use default from_email from settings
+        )
+
+
+class PasswordResetConfirmSerializer(serializers.Serializer):
+    uid = serializers.CharField()
+    token = serializers.CharField()
+    new_password = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        try:
+            uid = urlsafe_base64_decode(data['uid']).decode()
+            user = User.objects.get(pk=uid)
+        except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+            raise ValidationError("Invalid UID or user does not exist.")
+
+        if not PasswordResetTokenGenerator().check_token(user, data['token']):
+            raise ValidationError("Invalid or expired token.")
+
+        self.user = user
+        return data
+
+    def save(self):
+        self.user.set_password(self.validated_data['new_password'])
+        self.user.save()
+
+# -----------------------------------shipping-------------------
+
+class ShippingMethodSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShippingMethod
+        fields = ['id', 'name', 'price']
+
+# -----------------------------------payment ----------------------
+
+
+class CardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Card
+        fields = ['card_number', 'valid_thru', 'card_name']
