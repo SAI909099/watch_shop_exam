@@ -6,7 +6,7 @@ user:
 	python3 manage.py createsuperuser
 
 load_data:
-	python3 manage.py loaddata ./categories
+	python3 manage.py loaddata categories
 celery:
 	celery -A root worker --loglevel=info
 

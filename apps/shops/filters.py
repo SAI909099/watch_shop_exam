@@ -1,4 +1,5 @@
-import django_filters
+from django_filters import FilterSet
 
 
-class ShopFilter(django_filters.FilterSet):
+class ShopFilter(FilterSet):
+    pass

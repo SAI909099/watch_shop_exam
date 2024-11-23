@@ -1,38 +1,99 @@
-from django.db import models
-from django.db.models import CASCADE, CharField
+from django.db.models import CASCADE, CharField, Model, ForeignKey, TextField, DecimalField, ImageField,  \
+    BooleanField
+from django_jsonform.models.fields import JSONField
 
 from apps.users.models import User
 
 
-class Categories(models.Model):
+class Categories(Model):
     name = CharField(max_length=50)
 
-class Straps(models.Model):
-    name = models.CharField(max_length=100)
-    category = models.ForeignKey(Categories, on_delete=CASCADE)
-
-class Watches(models.Model):
-    name = models.CharField(max_length=100)
-    category = models.ForeignKey(Categories, CASCADE, related_name='products')
-    about = models.TextField()
-    price = models.DecimalField(max_digits=5, decimal_places=2)
-    case_color = models.CharField(max_length=50)
-    dial_design = models.CharField(max_length=50)
-    strap_design = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='products/%Y/%m/%d')
+    def __str__(self):
+        return self.name
 
 
-class CustomWatch(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    case_color = models.CharField(max_length=50)
-    strap_color = models.CharField(max_length=50)
-    dial_design = models.CharField(max_length=100)
-    extra_strap = models.BooleanField(default=False)
-    laser_engraving = models.BooleanField(default=False)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to="custom_watches/", blank=True, null=True)
+class Straps(Model):
+    name = CharField(max_length=100)
+    category = ForeignKey(Categories, on_delete=CASCADE)
+
+
+class Watches(Model):
+    SCHEMA = {
+        'type': 'dict',
+        'keys': {
+            'keys': {
+                'type': 'string',
+                'title': 'Keys',
+            },
+            'coating': {
+                'type': 'string',
+                'title': 'Coating',
+            },
+            'glass':{
+                'type': 'string',
+                'title': 'Glass',
+            },
+            'straps':{
+                'type': 'string',
+                "title": "Straps",
+            },
+            'case_size':{
+                'type': 'string',
+                'title': 'Case size',
+            },
+            'case_color':{
+                'type': 'string',
+                'title': 'Case color',
+            },
+            'dial_color':{
+                'type': 'string',
+                'title': 'Dial color',
+            },
+            'water_resistance':{
+                'type': 'string',
+                'title': 'Water resistance',
+            },
+            'straps_type':{
+                'type': 'string',
+                "title": "Straps",
+            },
+            'movement':{
+                'type':'string',
+                'title':'Movement',
+            },
+            'instantaneous_rate':{
+                'type': 'string',
+                'title': 'Instantaneous rate',
+            },
+            'standard_battery_life':{
+                'type': 'string',
+                'title': 'Standard battery life',
+            }
+
+        }
+    }
+    name = CharField(max_length=100)
+    category = ForeignKey(Categories, CASCADE, related_name='products')
+    about = TextField()
+    price = DecimalField(max_digits=5, decimal_places=2)
+    case_color = CharField(max_length=50)
+    dial_design = CharField(max_length=50)
+    strap_design = CharField(max_length=50)
+    image = ImageField(upload_to='products/%Y/%m/%d')
+    specification = JSONField(schema=SCHEMA)
+
+    def __str__(self):
+        return self.name
+
+
+class CustomWatch(Model):
+    user = ForeignKey(User, on_delete=CASCADE)
+    case_color = CharField(max_length=50)
+    strap_color = CharField(max_length=50)
+    dial_design = CharField(max_length=100)
+    extra_strap = BooleanField(default=False)
+    laser_engraving = BooleanField(default=False)
+    price = DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return f"Custom Watch by {self.user}"
-
-

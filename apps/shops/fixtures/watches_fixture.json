@@ -1,0 +1,2802 @@
+[
+    {
+        "model": "shops.watches",
+        "pk": 1,
+        "fields": {
+            "name": "Watch Model 1",
+            "category": 1,
+            "about": "This is the description for Watch Model 1.",
+            "price": 110.74,
+            "case_color": "Black",
+            "dial_design": "Sporty",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_1.jpg",
+            "specification": {
+                "keys": "Material 1",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "38mm",
+                "case_color": "Blue",
+                "dial_color": "Blue",
+                "water_resistance": "19 ATM",
+                "straps_type": "Leather",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 11 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 2,
+        "fields": {
+            "name": "Watch Model 2",
+            "category": 2,
+            "about": "This is the description for Watch Model 2.",
+            "price": 329.43,
+            "case_color": "Blue",
+            "dial_design": "Casual",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_2.jpg",
+            "specification": {
+                "keys": "Material 2",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "41mm",
+                "case_color": "Blue",
+                "dial_color": "Black",
+                "water_resistance": "6 ATM",
+                "straps_type": "Metal",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 6 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 3,
+        "fields": {
+            "name": "Watch Model 3",
+            "category": 1,
+            "about": "This is the description for Watch Model 3.",
+            "price": 91.4,
+            "case_color": "Gold",
+            "dial_design": "Sporty",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_3.jpg",
+            "specification": {
+                "keys": "Material 3",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "42mm",
+                "case_color": "Silver",
+                "dial_color": "Blue",
+                "water_resistance": "18 ATM",
+                "straps_type": "Metal",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 5 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 4,
+        "fields": {
+            "name": "Watch Model 4",
+            "category": 1,
+            "about": "This is the description for Watch Model 4.",
+            "price": 226.4,
+            "case_color": "Gold",
+            "dial_design": "Luxury",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_4.jpg",
+            "specification": {
+                "keys": "Material 4",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "40mm",
+                "case_color": "Gold",
+                "dial_color": "Blue",
+                "water_resistance": "18 ATM",
+                "straps_type": "Leather",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 2 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 5,
+        "fields": {
+            "name": "Watch Model 5",
+            "category": 1,
+            "about": "This is the description for Watch Model 5.",
+            "price": 263.51,
+            "case_color": "Silver",
+            "dial_design": "Classic",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_5.jpg",
+            "specification": {
+                "keys": "Material 5",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "43mm",
+                "case_color": "Gold",
+                "dial_color": "Gold",
+                "water_resistance": "13 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 10 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 6,
+        "fields": {
+            "name": "Watch Model 6",
+            "category": 1,
+            "about": "This is the description for Watch Model 6.",
+            "price": 468.77,
+            "case_color": "Silver",
+            "dial_design": "Luxury",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_6.jpg",
+            "specification": {
+                "keys": "Material 6",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "45mm",
+                "case_color": "Green",
+                "dial_color": "Blue",
+                "water_resistance": "14 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 9 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 7,
+        "fields": {
+            "name": "Watch Model 7",
+            "category": 2,
+            "about": "This is the description for Watch Model 7.",
+            "price": 111.78,
+            "case_color": "Silver",
+            "dial_design": "Classic",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_7.jpg",
+            "specification": {
+                "keys": "Material 7",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "40mm",
+                "case_color": "Green",
+                "dial_color": "Gold",
+                "water_resistance": "17 ATM",
+                "straps_type": "Metal",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 4 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 8,
+        "fields": {
+            "name": "Watch Model 8",
+            "category": 1,
+            "about": "This is the description for Watch Model 8.",
+            "price": 59.07,
+            "case_color": "Silver",
+            "dial_design": "Casual",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_8.jpg",
+            "specification": {
+                "keys": "Material 8",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "40mm",
+                "case_color": "Blue",
+                "dial_color": "Blue",
+                "water_resistance": "17 ATM",
+                "straps_type": "Rubber",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 12 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 9,
+        "fields": {
+            "name": "Watch Model 9",
+            "category": 1,
+            "about": "This is the description for Watch Model 9.",
+            "price": 367.38,
+            "case_color": "Gold",
+            "dial_design": "Sporty",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_9.jpg",
+            "specification": {
+                "keys": "Material 9",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "36mm",
+                "case_color": "Silver",
+                "dial_color": "Green",
+                "water_resistance": "15 ATM",
+                "straps_type": "Metal",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 1 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 10,
+        "fields": {
+            "name": "Watch Model 10",
+            "category": 1,
+            "about": "This is the description for Watch Model 10.",
+            "price": 125.33,
+            "case_color": "Black",
+            "dial_design": "Classic",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_10.jpg",
+            "specification": {
+                "keys": "Material 10",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "42mm",
+                "case_color": "Green",
+                "dial_color": "Silver",
+                "water_resistance": "17 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 9 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 11,
+        "fields": {
+            "name": "Watch Model 11",
+            "category": 2,
+            "about": "This is the description for Watch Model 11.",
+            "price": 164.23,
+            "case_color": "Silver",
+            "dial_design": "Sporty",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_11.jpg",
+            "specification": {
+                "keys": "Material 11",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "36mm",
+                "case_color": "Blue",
+                "dial_color": "Gold",
+                "water_resistance": "13 ATM",
+                "straps_type": "Leather",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 2 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 12,
+        "fields": {
+            "name": "Watch Model 12",
+            "category": 1,
+            "about": "This is the description for Watch Model 12.",
+            "price": 333.04,
+            "case_color": "Silver",
+            "dial_design": "Classic",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_12.jpg",
+            "specification": {
+                "keys": "Material 12",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "38mm",
+                "case_color": "Green",
+                "dial_color": "Blue",
+                "water_resistance": "20 ATM",
+                "straps_type": "Leather",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 1 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 13,
+        "fields": {
+            "name": "Watch Model 13",
+            "category": 1,
+            "about": "This is the description for Watch Model 13.",
+            "price": 223.89,
+            "case_color": "Green",
+            "dial_design": "Classic",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_13.jpg",
+            "specification": {
+                "keys": "Material 13",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "42mm",
+                "case_color": "Black",
+                "dial_color": "Blue",
+                "water_resistance": "11 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 3 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 14,
+        "fields": {
+            "name": "Watch Model 14",
+            "category": 1,
+            "about": "This is the description for Watch Model 14.",
+            "price": 276.5,
+            "case_color": "Green",
+            "dial_design": "Sporty",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_14.jpg",
+            "specification": {
+                "keys": "Material 14",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "39mm",
+                "case_color": "Blue",
+                "dial_color": "Gold",
+                "water_resistance": "10 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 9 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 15,
+        "fields": {
+            "name": "Watch Model 15",
+            "category": 2,
+            "about": "This is the description for Watch Model 15.",
+            "price": 275.78,
+            "case_color": "Black",
+            "dial_design": "Casual",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_15.jpg",
+            "specification": {
+                "keys": "Material 15",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "36mm",
+                "case_color": "Black",
+                "dial_color": "Green",
+                "water_resistance": "18 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 5 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 16,
+        "fields": {
+            "name": "Watch Model 16",
+            "category": 1,
+            "about": "This is the description for Watch Model 16.",
+            "price": 461.79,
+            "case_color": "Green",
+            "dial_design": "Classic",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_16.jpg",
+            "specification": {
+                "keys": "Material 16",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "39mm",
+                "case_color": "Blue",
+                "dial_color": "Green",
+                "water_resistance": "5 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 3 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 17,
+        "fields": {
+            "name": "Watch Model 17",
+            "category": 1,
+            "about": "This is the description for Watch Model 17.",
+            "price": 221.06,
+            "case_color": "Silver",
+            "dial_design": "Classic",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_17.jpg",
+            "specification": {
+                "keys": "Material 17",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "40mm",
+                "case_color": "Black",
+                "dial_color": "Gold",
+                "water_resistance": "4 ATM",
+                "straps_type": "Metal",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 7 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 18,
+        "fields": {
+            "name": "Watch Model 18",
+            "category": 2,
+            "about": "This is the description for Watch Model 18.",
+            "price": 359.25,
+            "case_color": "Silver",
+            "dial_design": "Luxury",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_18.jpg",
+            "specification": {
+                "keys": "Material 18",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "44mm",
+                "case_color": "Blue",
+                "dial_color": "Black",
+                "water_resistance": "5 ATM",
+                "straps_type": "Leather",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 8 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 19,
+        "fields": {
+            "name": "Watch Model 19",
+            "category": 1,
+            "about": "This is the description for Watch Model 19.",
+            "price": 166.27,
+            "case_color": "Green",
+            "dial_design": "Minimalist",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_19.jpg",
+            "specification": {
+                "keys": "Material 19",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "41mm",
+                "case_color": "Green",
+                "dial_color": "Blue",
+                "water_resistance": "19 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 7 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 20,
+        "fields": {
+            "name": "Watch Model 20",
+            "category": 2,
+            "about": "This is the description for Watch Model 20.",
+            "price": 73.44,
+            "case_color": "Black",
+            "dial_design": "Sporty",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_20.jpg",
+            "specification": {
+                "keys": "Material 20",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "43mm",
+                "case_color": "Silver",
+                "dial_color": "Blue",
+                "water_resistance": "10 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 10 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 21,
+        "fields": {
+            "name": "Watch Model 21",
+            "category": 2,
+            "about": "This is the description for Watch Model 21.",
+            "price": 320.19,
+            "case_color": "Blue",
+            "dial_design": "Luxury",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_21.jpg",
+            "specification": {
+                "keys": "Material 21",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "37mm",
+                "case_color": "Blue",
+                "dial_color": "Green",
+                "water_resistance": "20 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 3 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 22,
+        "fields": {
+            "name": "Watch Model 22",
+            "category": 1,
+            "about": "This is the description for Watch Model 22.",
+            "price": 485.32,
+            "case_color": "Blue",
+            "dial_design": "Classic",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_22.jpg",
+            "specification": {
+                "keys": "Material 22",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "39mm",
+                "case_color": "Black",
+                "dial_color": "Black",
+                "water_resistance": "4 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 3 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 23,
+        "fields": {
+            "name": "Watch Model 23",
+            "category": 2,
+            "about": "This is the description for Watch Model 23.",
+            "price": 168.43,
+            "case_color": "Black",
+            "dial_design": "Minimalist",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_23.jpg",
+            "specification": {
+                "keys": "Material 23",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "36mm",
+                "case_color": "Silver",
+                "dial_color": "Silver",
+                "water_resistance": "17 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 5 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 24,
+        "fields": {
+            "name": "Watch Model 24",
+            "category": 2,
+            "about": "This is the description for Watch Model 24.",
+            "price": 273.05,
+            "case_color": "Green",
+            "dial_design": "Sporty",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_24.jpg",
+            "specification": {
+                "keys": "Material 24",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "43mm",
+                "case_color": "Black",
+                "dial_color": "Green",
+                "water_resistance": "4 ATM",
+                "straps_type": "Metal",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 13 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 25,
+        "fields": {
+            "name": "Watch Model 25",
+            "category": 2,
+            "about": "This is the description for Watch Model 25.",
+            "price": 88.52,
+            "case_color": "Blue",
+            "dial_design": "Casual",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_25.jpg",
+            "specification": {
+                "keys": "Material 25",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "38mm",
+                "case_color": "Blue",
+                "dial_color": "Green",
+                "water_resistance": "9 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 15 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 26,
+        "fields": {
+            "name": "Watch Model 26",
+            "category": 2,
+            "about": "This is the description for Watch Model 26.",
+            "price": 398.71,
+            "case_color": "Silver",
+            "dial_design": "Luxury",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_26.jpg",
+            "specification": {
+                "keys": "Material 26",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "44mm",
+                "case_color": "Black",
+                "dial_color": "Silver",
+                "water_resistance": "12 ATM",
+                "straps_type": "Leather",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 11 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 27,
+        "fields": {
+            "name": "Watch Model 27",
+            "category": 1,
+            "about": "This is the description for Watch Model 27.",
+            "price": 488.87,
+            "case_color": "Gold",
+            "dial_design": "Casual",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_27.jpg",
+            "specification": {
+                "keys": "Material 27",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "39mm",
+                "case_color": "Gold",
+                "dial_color": "Black",
+                "water_resistance": "5 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 9 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 28,
+        "fields": {
+            "name": "Watch Model 28",
+            "category": 1,
+            "about": "This is the description for Watch Model 28.",
+            "price": 52.21,
+            "case_color": "Green",
+            "dial_design": "Luxury",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_28.jpg",
+            "specification": {
+                "keys": "Material 28",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "41mm",
+                "case_color": "Blue",
+                "dial_color": "Black",
+                "water_resistance": "18 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 6 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 29,
+        "fields": {
+            "name": "Watch Model 29",
+            "category": 2,
+            "about": "This is the description for Watch Model 29.",
+            "price": 307.3,
+            "case_color": "Blue",
+            "dial_design": "Luxury",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_29.jpg",
+            "specification": {
+                "keys": "Material 29",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "40mm",
+                "case_color": "Blue",
+                "dial_color": "Gold",
+                "water_resistance": "7 ATM",
+                "straps_type": "Leather",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 2 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 30,
+        "fields": {
+            "name": "Watch Model 30",
+            "category": 1,
+            "about": "This is the description for Watch Model 30.",
+            "price": 396.31,
+            "case_color": "Black",
+            "dial_design": "Luxury",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_30.jpg",
+            "specification": {
+                "keys": "Material 30",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "36mm",
+                "case_color": "Silver",
+                "dial_color": "Gold",
+                "water_resistance": "20 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 8 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 31,
+        "fields": {
+            "name": "Watch Model 31",
+            "category": 2,
+            "about": "This is the description for Watch Model 31.",
+            "price": 360.68,
+            "case_color": "Green",
+            "dial_design": "Minimalist",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_31.jpg",
+            "specification": {
+                "keys": "Material 31",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "45mm",
+                "case_color": "Blue",
+                "dial_color": "Silver",
+                "water_resistance": "17 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 4 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 32,
+        "fields": {
+            "name": "Watch Model 32",
+            "category": 1,
+            "about": "This is the description for Watch Model 32.",
+            "price": 208.28,
+            "case_color": "Gold",
+            "dial_design": "Sporty",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_32.jpg",
+            "specification": {
+                "keys": "Material 32",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "43mm",
+                "case_color": "Silver",
+                "dial_color": "Green",
+                "water_resistance": "15 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 3 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 33,
+        "fields": {
+            "name": "Watch Model 33",
+            "category": 2,
+            "about": "This is the description for Watch Model 33.",
+            "price": 457.47,
+            "case_color": "Gold",
+            "dial_design": "Minimalist",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_33.jpg",
+            "specification": {
+                "keys": "Material 33",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "36mm",
+                "case_color": "Gold",
+                "dial_color": "Blue",
+                "water_resistance": "17 ATM",
+                "straps_type": "Leather",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 3 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 34,
+        "fields": {
+            "name": "Watch Model 34",
+            "category": 2,
+            "about": "This is the description for Watch Model 34.",
+            "price": 116.12,
+            "case_color": "Black",
+            "dial_design": "Luxury",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_34.jpg",
+            "specification": {
+                "keys": "Material 34",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "36mm",
+                "case_color": "Gold",
+                "dial_color": "Gold",
+                "water_resistance": "18 ATM",
+                "straps_type": "Leather",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 6 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 35,
+        "fields": {
+            "name": "Watch Model 35",
+            "category": 1,
+            "about": "This is the description for Watch Model 35.",
+            "price": 460.16,
+            "case_color": "Green",
+            "dial_design": "Sporty",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_35.jpg",
+            "specification": {
+                "keys": "Material 35",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "38mm",
+                "case_color": "Gold",
+                "dial_color": "Gold",
+                "water_resistance": "11 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 4 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 36,
+        "fields": {
+            "name": "Watch Model 36",
+            "category": 1,
+            "about": "This is the description for Watch Model 36.",
+            "price": 291.55,
+            "case_color": "Silver",
+            "dial_design": "Minimalist",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_36.jpg",
+            "specification": {
+                "keys": "Material 36",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "44mm",
+                "case_color": "Silver",
+                "dial_color": "Green",
+                "water_resistance": "18 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 15 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 37,
+        "fields": {
+            "name": "Watch Model 37",
+            "category": 1,
+            "about": "This is the description for Watch Model 37.",
+            "price": 364.02,
+            "case_color": "Silver",
+            "dial_design": "Casual",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_37.jpg",
+            "specification": {
+                "keys": "Material 37",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "40mm",
+                "case_color": "Gold",
+                "dial_color": "Black",
+                "water_resistance": "3 ATM",
+                "straps_type": "Leather",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 11 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 38,
+        "fields": {
+            "name": "Watch Model 38",
+            "category": 2,
+            "about": "This is the description for Watch Model 38.",
+            "price": 65.09,
+            "case_color": "Gold",
+            "dial_design": "Casual",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_38.jpg",
+            "specification": {
+                "keys": "Material 38",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "42mm",
+                "case_color": "Silver",
+                "dial_color": "Black",
+                "water_resistance": "6 ATM",
+                "straps_type": "Leather",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 7 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 39,
+        "fields": {
+            "name": "Watch Model 39",
+            "category": 2,
+            "about": "This is the description for Watch Model 39.",
+            "price": 450.36,
+            "case_color": "Gold",
+            "dial_design": "Luxury",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_39.jpg",
+            "specification": {
+                "keys": "Material 39",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "40mm",
+                "case_color": "Silver",
+                "dial_color": "Gold",
+                "water_resistance": "8 ATM",
+                "straps_type": "Rubber",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 9 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 40,
+        "fields": {
+            "name": "Watch Model 40",
+            "category": 2,
+            "about": "This is the description for Watch Model 40.",
+            "price": 74.61,
+            "case_color": "Green",
+            "dial_design": "Minimalist",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_40.jpg",
+            "specification": {
+                "keys": "Material 40",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "45mm",
+                "case_color": "Black",
+                "dial_color": "Black",
+                "water_resistance": "6 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 11 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 41,
+        "fields": {
+            "name": "Watch Model 41",
+            "category": 2,
+            "about": "This is the description for Watch Model 41.",
+            "price": 362.14,
+            "case_color": "Silver",
+            "dial_design": "Classic",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_41.jpg",
+            "specification": {
+                "keys": "Material 41",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "42mm",
+                "case_color": "Gold",
+                "dial_color": "Gold",
+                "water_resistance": "3 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 8 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 42,
+        "fields": {
+            "name": "Watch Model 42",
+            "category": 2,
+            "about": "This is the description for Watch Model 42.",
+            "price": 239.75,
+            "case_color": "Gold",
+            "dial_design": "Sporty",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_42.jpg",
+            "specification": {
+                "keys": "Material 42",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "36mm",
+                "case_color": "Silver",
+                "dial_color": "Blue",
+                "water_resistance": "7 ATM",
+                "straps_type": "Rubber",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 10 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 43,
+        "fields": {
+            "name": "Watch Model 43",
+            "category": 1,
+            "about": "This is the description for Watch Model 43.",
+            "price": 156.14,
+            "case_color": "Blue",
+            "dial_design": "Sporty",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_43.jpg",
+            "specification": {
+                "keys": "Material 43",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "37mm",
+                "case_color": "Silver",
+                "dial_color": "Silver",
+                "water_resistance": "15 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 1 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 44,
+        "fields": {
+            "name": "Watch Model 44",
+            "category": 1,
+            "about": "This is the description for Watch Model 44.",
+            "price": 495.05,
+            "case_color": "Green",
+            "dial_design": "Casual",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_44.jpg",
+            "specification": {
+                "keys": "Material 44",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "42mm",
+                "case_color": "Blue",
+                "dial_color": "Gold",
+                "water_resistance": "16 ATM",
+                "straps_type": "Leather",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 11 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 45,
+        "fields": {
+            "name": "Watch Model 45",
+            "category": 1,
+            "about": "This is the description for Watch Model 45.",
+            "price": 247.34,
+            "case_color": "Black",
+            "dial_design": "Casual",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_45.jpg",
+            "specification": {
+                "keys": "Material 45",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "44mm",
+                "case_color": "Silver",
+                "dial_color": "Blue",
+                "water_resistance": "5 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 8 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 46,
+        "fields": {
+            "name": "Watch Model 46",
+            "category": 2,
+            "about": "This is the description for Watch Model 46.",
+            "price": 499.69,
+            "case_color": "Silver",
+            "dial_design": "Luxury",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_46.jpg",
+            "specification": {
+                "keys": "Material 46",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "40mm",
+                "case_color": "Gold",
+                "dial_color": "Black",
+                "water_resistance": "9 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 12 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 47,
+        "fields": {
+            "name": "Watch Model 47",
+            "category": 2,
+            "about": "This is the description for Watch Model 47.",
+            "price": 60.34,
+            "case_color": "Green",
+            "dial_design": "Minimalist",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_47.jpg",
+            "specification": {
+                "keys": "Material 47",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "41mm",
+                "case_color": "Blue",
+                "dial_color": "Green",
+                "water_resistance": "16 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 8 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 48,
+        "fields": {
+            "name": "Watch Model 48",
+            "category": 1,
+            "about": "This is the description for Watch Model 48.",
+            "price": 327.4,
+            "case_color": "Gold",
+            "dial_design": "Minimalist",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_48.jpg",
+            "specification": {
+                "keys": "Material 48",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "42mm",
+                "case_color": "Green",
+                "dial_color": "Gold",
+                "water_resistance": "19 ATM",
+                "straps_type": "Metal",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 10 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 49,
+        "fields": {
+            "name": "Watch Model 49",
+            "category": 2,
+            "about": "This is the description for Watch Model 49.",
+            "price": 56.05,
+            "case_color": "Blue",
+            "dial_design": "Luxury",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_49.jpg",
+            "specification": {
+                "keys": "Material 49",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "38mm",
+                "case_color": "Blue",
+                "dial_color": "Blue",
+                "water_resistance": "17 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 6 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 50,
+        "fields": {
+            "name": "Watch Model 50",
+            "category": 2,
+            "about": "This is the description for Watch Model 50.",
+            "price": 284.97,
+            "case_color": "Green",
+            "dial_design": "Luxury",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_50.jpg",
+            "specification": {
+                "keys": "Material 50",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "40mm",
+                "case_color": "Green",
+                "dial_color": "Blue",
+                "water_resistance": "11 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 3 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 51,
+        "fields": {
+            "name": "Watch Model 51",
+            "category": 2,
+            "about": "This is the description for Watch Model 51.",
+            "price": 305.04,
+            "case_color": "Gold",
+            "dial_design": "Minimalist",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_51.jpg",
+            "specification": {
+                "keys": "Material 51",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "37mm",
+                "case_color": "Gold",
+                "dial_color": "Black",
+                "water_resistance": "6 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 13 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 52,
+        "fields": {
+            "name": "Watch Model 52",
+            "category": 2,
+            "about": "This is the description for Watch Model 52.",
+            "price": 277.95,
+            "case_color": "Silver",
+            "dial_design": "Luxury",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_52.jpg",
+            "specification": {
+                "keys": "Material 52",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "43mm",
+                "case_color": "Silver",
+                "dial_color": "Silver",
+                "water_resistance": "16 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 3 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 53,
+        "fields": {
+            "name": "Watch Model 53",
+            "category": 2,
+            "about": "This is the description for Watch Model 53.",
+            "price": 392.15,
+            "case_color": "Silver",
+            "dial_design": "Minimalist",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_53.jpg",
+            "specification": {
+                "keys": "Material 53",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "39mm",
+                "case_color": "Silver",
+                "dial_color": "Black",
+                "water_resistance": "20 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 14 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 54,
+        "fields": {
+            "name": "Watch Model 54",
+            "category": 1,
+            "about": "This is the description for Watch Model 54.",
+            "price": 352.7,
+            "case_color": "Silver",
+            "dial_design": "Casual",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_54.jpg",
+            "specification": {
+                "keys": "Material 54",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "45mm",
+                "case_color": "Blue",
+                "dial_color": "Silver",
+                "water_resistance": "7 ATM",
+                "straps_type": "Leather",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 7 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 55,
+        "fields": {
+            "name": "Watch Model 55",
+            "category": 1,
+            "about": "This is the description for Watch Model 55.",
+            "price": 123.22,
+            "case_color": "Black",
+            "dial_design": "Casual",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_55.jpg",
+            "specification": {
+                "keys": "Material 55",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "39mm",
+                "case_color": "Silver",
+                "dial_color": "Blue",
+                "water_resistance": "17 ATM",
+                "straps_type": "Metal",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 5 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 56,
+        "fields": {
+            "name": "Watch Model 56",
+            "category": 1,
+            "about": "This is the description for Watch Model 56.",
+            "price": 388.32,
+            "case_color": "Blue",
+            "dial_design": "Sporty",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_56.jpg",
+            "specification": {
+                "keys": "Material 56",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "39mm",
+                "case_color": "Gold",
+                "dial_color": "Silver",
+                "water_resistance": "12 ATM",
+                "straps_type": "Rubber",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 5 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 57,
+        "fields": {
+            "name": "Watch Model 57",
+            "category": 2,
+            "about": "This is the description for Watch Model 57.",
+            "price": 158.48,
+            "case_color": "Gold",
+            "dial_design": "Minimalist",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_57.jpg",
+            "specification": {
+                "keys": "Material 57",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "42mm",
+                "case_color": "Gold",
+                "dial_color": "Blue",
+                "water_resistance": "9 ATM",
+                "straps_type": "Metal",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 2 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 58,
+        "fields": {
+            "name": "Watch Model 58",
+            "category": 1,
+            "about": "This is the description for Watch Model 58.",
+            "price": 299.96,
+            "case_color": "Black",
+            "dial_design": "Minimalist",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_58.jpg",
+            "specification": {
+                "keys": "Material 58",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "36mm",
+                "case_color": "Gold",
+                "dial_color": "Blue",
+                "water_resistance": "10 ATM",
+                "straps_type": "Metal",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 2 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 59,
+        "fields": {
+            "name": "Watch Model 59",
+            "category": 1,
+            "about": "This is the description for Watch Model 59.",
+            "price": 398.24,
+            "case_color": "Gold",
+            "dial_design": "Luxury",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_59.jpg",
+            "specification": {
+                "keys": "Material 59",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "37mm",
+                "case_color": "Gold",
+                "dial_color": "Black",
+                "water_resistance": "10 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 7 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 60,
+        "fields": {
+            "name": "Watch Model 60",
+            "category": 1,
+            "about": "This is the description for Watch Model 60.",
+            "price": 465.9,
+            "case_color": "Green",
+            "dial_design": "Sporty",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_60.jpg",
+            "specification": {
+                "keys": "Material 60",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "42mm",
+                "case_color": "Blue",
+                "dial_color": "Gold",
+                "water_resistance": "6 ATM",
+                "straps_type": "Leather",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 4 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 61,
+        "fields": {
+            "name": "Watch Model 61",
+            "category": 1,
+            "about": "This is the description for Watch Model 61.",
+            "price": 146.3,
+            "case_color": "Black",
+            "dial_design": "Sporty",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_61.jpg",
+            "specification": {
+                "keys": "Material 61",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "40mm",
+                "case_color": "Green",
+                "dial_color": "Silver",
+                "water_resistance": "5 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 2 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 62,
+        "fields": {
+            "name": "Watch Model 62",
+            "category": 1,
+            "about": "This is the description for Watch Model 62.",
+            "price": 283.75,
+            "case_color": "Gold",
+            "dial_design": "Minimalist",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_62.jpg",
+            "specification": {
+                "keys": "Material 62",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "41mm",
+                "case_color": "Blue",
+                "dial_color": "Blue",
+                "water_resistance": "8 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 15 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 63,
+        "fields": {
+            "name": "Watch Model 63",
+            "category": 1,
+            "about": "This is the description for Watch Model 63.",
+            "price": 52.9,
+            "case_color": "Green",
+            "dial_design": "Classic",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_63.jpg",
+            "specification": {
+                "keys": "Material 63",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "39mm",
+                "case_color": "Blue",
+                "dial_color": "Green",
+                "water_resistance": "19 ATM",
+                "straps_type": "Rubber",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 9 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 64,
+        "fields": {
+            "name": "Watch Model 64",
+            "category": 1,
+            "about": "This is the description for Watch Model 64.",
+            "price": 319.68,
+            "case_color": "Blue",
+            "dial_design": "Sporty",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_64.jpg",
+            "specification": {
+                "keys": "Material 64",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "45mm",
+                "case_color": "Silver",
+                "dial_color": "Gold",
+                "water_resistance": "20 ATM",
+                "straps_type": "Metal",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 7 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 65,
+        "fields": {
+            "name": "Watch Model 65",
+            "category": 2,
+            "about": "This is the description for Watch Model 65.",
+            "price": 248.67,
+            "case_color": "Gold",
+            "dial_design": "Classic",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_65.jpg",
+            "specification": {
+                "keys": "Material 65",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "44mm",
+                "case_color": "Silver",
+                "dial_color": "Silver",
+                "water_resistance": "6 ATM",
+                "straps_type": "Leather",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 12 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 66,
+        "fields": {
+            "name": "Watch Model 66",
+            "category": 1,
+            "about": "This is the description for Watch Model 66.",
+            "price": 386.85,
+            "case_color": "Blue",
+            "dial_design": "Casual",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_66.jpg",
+            "specification": {
+                "keys": "Material 66",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "38mm",
+                "case_color": "Gold",
+                "dial_color": "Gold",
+                "water_resistance": "3 ATM",
+                "straps_type": "Rubber",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 10 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 67,
+        "fields": {
+            "name": "Watch Model 67",
+            "category": 1,
+            "about": "This is the description for Watch Model 67.",
+            "price": 304.65,
+            "case_color": "Silver",
+            "dial_design": "Classic",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_67.jpg",
+            "specification": {
+                "keys": "Material 67",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "44mm",
+                "case_color": "Gold",
+                "dial_color": "Gold",
+                "water_resistance": "5 ATM",
+                "straps_type": "Leather",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 6 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 68,
+        "fields": {
+            "name": "Watch Model 68",
+            "category": 2,
+            "about": "This is the description for Watch Model 68.",
+            "price": 371.53,
+            "case_color": "Silver",
+            "dial_design": "Classic",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_68.jpg",
+            "specification": {
+                "keys": "Material 68",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "43mm",
+                "case_color": "Green",
+                "dial_color": "Black",
+                "water_resistance": "14 ATM",
+                "straps_type": "Rubber",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 14 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 69,
+        "fields": {
+            "name": "Watch Model 69",
+            "category": 1,
+            "about": "This is the description for Watch Model 69.",
+            "price": 242.67,
+            "case_color": "Blue",
+            "dial_design": "Luxury",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_69.jpg",
+            "specification": {
+                "keys": "Material 69",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "36mm",
+                "case_color": "Black",
+                "dial_color": "Blue",
+                "water_resistance": "11 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 14 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 70,
+        "fields": {
+            "name": "Watch Model 70",
+            "category": 1,
+            "about": "This is the description for Watch Model 70.",
+            "price": 172.51,
+            "case_color": "Blue",
+            "dial_design": "Luxury",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_70.jpg",
+            "specification": {
+                "keys": "Material 70",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "38mm",
+                "case_color": "Green",
+                "dial_color": "Silver",
+                "water_resistance": "14 ATM",
+                "straps_type": "Leather",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 6 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 71,
+        "fields": {
+            "name": "Watch Model 71",
+            "category": 2,
+            "about": "This is the description for Watch Model 71.",
+            "price": 251.74,
+            "case_color": "Green",
+            "dial_design": "Casual",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_71.jpg",
+            "specification": {
+                "keys": "Material 71",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "43mm",
+                "case_color": "Blue",
+                "dial_color": "Blue",
+                "water_resistance": "15 ATM",
+                "straps_type": "Rubber",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 5 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 72,
+        "fields": {
+            "name": "Watch Model 72",
+            "category": 1,
+            "about": "This is the description for Watch Model 72.",
+            "price": 314.37,
+            "case_color": "Black",
+            "dial_design": "Casual",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_72.jpg",
+            "specification": {
+                "keys": "Material 72",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "36mm",
+                "case_color": "Black",
+                "dial_color": "Black",
+                "water_resistance": "16 ATM",
+                "straps_type": "Metal",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 14 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 73,
+        "fields": {
+            "name": "Watch Model 73",
+            "category": 2,
+            "about": "This is the description for Watch Model 73.",
+            "price": 232.54,
+            "case_color": "Silver",
+            "dial_design": "Classic",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_73.jpg",
+            "specification": {
+                "keys": "Material 73",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "42mm",
+                "case_color": "Blue",
+                "dial_color": "Blue",
+                "water_resistance": "3 ATM",
+                "straps_type": "Metal",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 1 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 74,
+        "fields": {
+            "name": "Watch Model 74",
+            "category": 2,
+            "about": "This is the description for Watch Model 74.",
+            "price": 267.77,
+            "case_color": "Black",
+            "dial_design": "Luxury",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_74.jpg",
+            "specification": {
+                "keys": "Material 74",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "36mm",
+                "case_color": "Gold",
+                "dial_color": "Blue",
+                "water_resistance": "8 ATM",
+                "straps_type": "Leather",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 11 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 75,
+        "fields": {
+            "name": "Watch Model 75",
+            "category": 2,
+            "about": "This is the description for Watch Model 75.",
+            "price": 259.53,
+            "case_color": "Blue",
+            "dial_design": "Classic",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_75.jpg",
+            "specification": {
+                "keys": "Material 75",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "36mm",
+                "case_color": "Gold",
+                "dial_color": "Gold",
+                "water_resistance": "8 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 2 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 76,
+        "fields": {
+            "name": "Watch Model 76",
+            "category": 2,
+            "about": "This is the description for Watch Model 76.",
+            "price": 178.53,
+            "case_color": "Black",
+            "dial_design": "Casual",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_76.jpg",
+            "specification": {
+                "keys": "Material 76",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "37mm",
+                "case_color": "Gold",
+                "dial_color": "Silver",
+                "water_resistance": "14 ATM",
+                "straps_type": "Leather",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 6 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 77,
+        "fields": {
+            "name": "Watch Model 77",
+            "category": 1,
+            "about": "This is the description for Watch Model 77.",
+            "price": 111.85,
+            "case_color": "Black",
+            "dial_design": "Sporty",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_77.jpg",
+            "specification": {
+                "keys": "Material 77",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "41mm",
+                "case_color": "Gold",
+                "dial_color": "Green",
+                "water_resistance": "9 ATM",
+                "straps_type": "Metal",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 9 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 78,
+        "fields": {
+            "name": "Watch Model 78",
+            "category": 1,
+            "about": "This is the description for Watch Model 78.",
+            "price": 90.71,
+            "case_color": "Gold",
+            "dial_design": "Casual",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_78.jpg",
+            "specification": {
+                "keys": "Material 78",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "40mm",
+                "case_color": "Gold",
+                "dial_color": "Silver",
+                "water_resistance": "16 ATM",
+                "straps_type": "Metal",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 2 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 79,
+        "fields": {
+            "name": "Watch Model 79",
+            "category": 1,
+            "about": "This is the description for Watch Model 79.",
+            "price": 73.56,
+            "case_color": "Black",
+            "dial_design": "Classic",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_79.jpg",
+            "specification": {
+                "keys": "Material 79",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "42mm",
+                "case_color": "Green",
+                "dial_color": "Black",
+                "water_resistance": "9 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 6 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 80,
+        "fields": {
+            "name": "Watch Model 80",
+            "category": 1,
+            "about": "This is the description for Watch Model 80.",
+            "price": 471.16,
+            "case_color": "Blue",
+            "dial_design": "Minimalist",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_80.jpg",
+            "specification": {
+                "keys": "Material 80",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "37mm",
+                "case_color": "Green",
+                "dial_color": "Gold",
+                "water_resistance": "11 ATM",
+                "straps_type": "Rubber",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 8 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 81,
+        "fields": {
+            "name": "Watch Model 81",
+            "category": 2,
+            "about": "This is the description for Watch Model 81.",
+            "price": 483.15,
+            "case_color": "Green",
+            "dial_design": "Casual",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_81.jpg",
+            "specification": {
+                "keys": "Material 81",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "38mm",
+                "case_color": "Silver",
+                "dial_color": "Gold",
+                "water_resistance": "13 ATM",
+                "straps_type": "Leather",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 12 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 82,
+        "fields": {
+            "name": "Watch Model 82",
+            "category": 1,
+            "about": "This is the description for Watch Model 82.",
+            "price": 278.3,
+            "case_color": "Blue",
+            "dial_design": "Sporty",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_82.jpg",
+            "specification": {
+                "keys": "Material 82",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "44mm",
+                "case_color": "Green",
+                "dial_color": "Gold",
+                "water_resistance": "4 ATM",
+                "straps_type": "Rubber",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 15 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 83,
+        "fields": {
+            "name": "Watch Model 83",
+            "category": 2,
+            "about": "This is the description for Watch Model 83.",
+            "price": 155.18,
+            "case_color": "Black",
+            "dial_design": "Sporty",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_83.jpg",
+            "specification": {
+                "keys": "Material 83",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "40mm",
+                "case_color": "Green",
+                "dial_color": "Black",
+                "water_resistance": "5 ATM",
+                "straps_type": "Metal",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 8 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 84,
+        "fields": {
+            "name": "Watch Model 84",
+            "category": 1,
+            "about": "This is the description for Watch Model 84.",
+            "price": 238.08,
+            "case_color": "Green",
+            "dial_design": "Luxury",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_84.jpg",
+            "specification": {
+                "keys": "Material 84",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "43mm",
+                "case_color": "Blue",
+                "dial_color": "Blue",
+                "water_resistance": "7 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 7 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 85,
+        "fields": {
+            "name": "Watch Model 85",
+            "category": 1,
+            "about": "This is the description for Watch Model 85.",
+            "price": 209.53,
+            "case_color": "Blue",
+            "dial_design": "Luxury",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_85.jpg",
+            "specification": {
+                "keys": "Material 85",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "43mm",
+                "case_color": "Green",
+                "dial_color": "Green",
+                "water_resistance": "17 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 2 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 86,
+        "fields": {
+            "name": "Watch Model 86",
+            "category": 1,
+            "about": "This is the description for Watch Model 86.",
+            "price": 178.96,
+            "case_color": "Blue",
+            "dial_design": "Classic",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_86.jpg",
+            "specification": {
+                "keys": "Material 86",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "45mm",
+                "case_color": "Gold",
+                "dial_color": "Blue",
+                "water_resistance": "3 ATM",
+                "straps_type": "Metal",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 6 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 87,
+        "fields": {
+            "name": "Watch Model 87",
+            "category": 1,
+            "about": "This is the description for Watch Model 87.",
+            "price": 415.57,
+            "case_color": "Silver",
+            "dial_design": "Sporty",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_87.jpg",
+            "specification": {
+                "keys": "Material 87",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "37mm",
+                "case_color": "Black",
+                "dial_color": "Black",
+                "water_resistance": "16 ATM",
+                "straps_type": "Rubber",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 15 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 88,
+        "fields": {
+            "name": "Watch Model 88",
+            "category": 2,
+            "about": "This is the description for Watch Model 88.",
+            "price": 447.15,
+            "case_color": "Green",
+            "dial_design": "Minimalist",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_88.jpg",
+            "specification": {
+                "keys": "Material 88",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "44mm",
+                "case_color": "Blue",
+                "dial_color": "Black",
+                "water_resistance": "19 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 9 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 89,
+        "fields": {
+            "name": "Watch Model 89",
+            "category": 1,
+            "about": "This is the description for Watch Model 89.",
+            "price": 499.99,
+            "case_color": "Green",
+            "dial_design": "Casual",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_89.jpg",
+            "specification": {
+                "keys": "Material 89",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "43mm",
+                "case_color": "Blue",
+                "dial_color": "Gold",
+                "water_resistance": "20 ATM",
+                "straps_type": "Leather",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 4 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 90,
+        "fields": {
+            "name": "Watch Model 90",
+            "category": 2,
+            "about": "This is the description for Watch Model 90.",
+            "price": 470.44,
+            "case_color": "Blue",
+            "dial_design": "Casual",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_90.jpg",
+            "specification": {
+                "keys": "Material 90",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "37mm",
+                "case_color": "Black",
+                "dial_color": "Blue",
+                "water_resistance": "14 ATM",
+                "straps_type": "Leather",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 2 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 91,
+        "fields": {
+            "name": "Watch Model 91",
+            "category": 1,
+            "about": "This is the description for Watch Model 91.",
+            "price": 141.92,
+            "case_color": "Green",
+            "dial_design": "Sporty",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_91.jpg",
+            "specification": {
+                "keys": "Material 91",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "44mm",
+                "case_color": "Silver",
+                "dial_color": "Black",
+                "water_resistance": "3 ATM",
+                "straps_type": "Metal",
+                "movement": "Smart",
+                "instantaneous_rate": "+/- 4 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 92,
+        "fields": {
+            "name": "Watch Model 92",
+            "category": 1,
+            "about": "This is the description for Watch Model 92.",
+            "price": 161.72,
+            "case_color": "Black",
+            "dial_design": "Luxury",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_92.jpg",
+            "specification": {
+                "keys": "Material 92",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Leather straps",
+                "case_size": "44mm",
+                "case_color": "Gold",
+                "dial_color": "Silver",
+                "water_resistance": "13 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 1 seconds per day",
+                "standard_battery_life": "5 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 93,
+        "fields": {
+            "name": "Watch Model 93",
+            "category": 1,
+            "about": "This is the description for Watch Model 93.",
+            "price": 483.09,
+            "case_color": "Black",
+            "dial_design": "Minimalist",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_93.jpg",
+            "specification": {
+                "keys": "Material 93",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "42mm",
+                "case_color": "Green",
+                "dial_color": "Blue",
+                "water_resistance": "19 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 14 seconds per day",
+                "standard_battery_life": "4 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 94,
+        "fields": {
+            "name": "Watch Model 94",
+            "category": 2,
+            "about": "This is the description for Watch Model 94.",
+            "price": 96.07,
+            "case_color": "Gold",
+            "dial_design": "Minimalist",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_94.jpg",
+            "specification": {
+                "keys": "Material 94",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Rubber straps",
+                "case_size": "41mm",
+                "case_color": "Blue",
+                "dial_color": "Blue",
+                "water_resistance": "9 ATM",
+                "straps_type": "Leather",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 9 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 95,
+        "fields": {
+            "name": "Watch Model 95",
+            "category": 1,
+            "about": "This is the description for Watch Model 95.",
+            "price": 275.52,
+            "case_color": "Gold",
+            "dial_design": "Luxury",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_95.jpg",
+            "specification": {
+                "keys": "Material 95",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "37mm",
+                "case_color": "Black",
+                "dial_color": "Gold",
+                "water_resistance": "20 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 12 seconds per day",
+                "standard_battery_life": "3 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 96,
+        "fields": {
+            "name": "Watch Model 96",
+            "category": 1,
+            "about": "This is the description for Watch Model 96.",
+            "price": 52.38,
+            "case_color": "Black",
+            "dial_design": "Casual",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_96.jpg",
+            "specification": {
+                "keys": "Material 96",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "43mm",
+                "case_color": "Blue",
+                "dial_color": "Black",
+                "water_resistance": "16 ATM",
+                "straps_type": "Metal",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 5 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 97,
+        "fields": {
+            "name": "Watch Model 97",
+            "category": 2,
+            "about": "This is the description for Watch Model 97.",
+            "price": 116.42,
+            "case_color": "Silver",
+            "dial_design": "Minimalist",
+            "strap_design": "Metal",
+            "image": "products/2024/11/18/watch_97.jpg",
+            "specification": {
+                "keys": "Material 97",
+                "coating": "Matte finish",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "39mm",
+                "case_color": "Green",
+                "dial_color": "Gold",
+                "water_resistance": "10 ATM",
+                "straps_type": "Leather",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 4 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 98,
+        "fields": {
+            "name": "Watch Model 98",
+            "category": 2,
+            "about": "This is the description for Watch Model 98.",
+            "price": 416.92,
+            "case_color": "Green",
+            "dial_design": "Casual",
+            "strap_design": "Rubber",
+            "image": "products/2024/11/18/watch_98.jpg",
+            "specification": {
+                "keys": "Material 98",
+                "coating": "PVD coating",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "41mm",
+                "case_color": "Gold",
+                "dial_color": "Black",
+                "water_resistance": "4 ATM",
+                "straps_type": "Leather",
+                "movement": "Automatic",
+                "instantaneous_rate": "+/- 8 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 99,
+        "fields": {
+            "name": "Watch Model 99",
+            "category": 1,
+            "about": "This is the description for Watch Model 99.",
+            "price": 178.9,
+            "case_color": "Green",
+            "dial_design": "Casual",
+            "strap_design": "Leather",
+            "image": "products/2024/11/18/watch_99.jpg",
+            "specification": {
+                "keys": "Material 99",
+                "coating": "Matte finish",
+                "glass": "Mineral crystal",
+                "straps": "Rubber straps",
+                "case_size": "43mm",
+                "case_color": "Green",
+                "dial_color": "Gold",
+                "water_resistance": "15 ATM",
+                "straps_type": "Rubber",
+                "movement": "Quartz",
+                "instantaneous_rate": "+/- 1 seconds per day",
+                "standard_battery_life": "1 years"
+            }
+        }
+    },
+    {
+        "model": "shops.watches",
+        "pk": 100,
+        "fields": {
+            "name": "Watch Model 100",
+            "category": 2,
+            "about": "This is the description for Watch Model 100.",
+            "price": 121.26,
+            "case_color": "Black",
+            "dial_design": "Casual",
+            "strap_design": "Nylon",
+            "image": "products/2024/11/18/watch_100.jpg",
+            "specification": {
+                "keys": "Material 100",
+                "coating": "PVD coating",
+                "glass": "Sapphire crystal",
+                "straps": "Leather straps",
+                "case_size": "45mm",
+                "case_color": "Blue",
+                "dial_color": "Blue",
+                "water_resistance": "11 ATM",
+                "straps_type": "Rubber",
+                "movement": "Solar",
+                "instantaneous_rate": "+/- 14 seconds per day",
+                "standard_battery_life": "2 years"
+            }
+        }
+    }
+]

@@ -11,4 +11,10 @@ class WatchListSerializer(serializers.ModelSerializer):
 class CustomWatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomWatch
-        fields = '__all__'
+        exclude = 'user',
+
+    def save(self, validated_data):
+        user = self.context['request'].user
+        validated_data['user'] = user
+        return super().create(validated_data)
+
