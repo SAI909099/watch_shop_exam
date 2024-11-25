@@ -12,10 +12,10 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from .email_service import ActivationEmailService
-from .models import User, Address, Country, ShippingMethod, Card
+from .models import User, Address, Country, ShippingMethod, Card, Contact
 from .serializers import RegisterUserModelSerializer, LoginUserModelSerializer, AddressListModelSerializer, \
     CountryModelSerializer, UserInfoSerializer, PasswordResetConfirmSerializer, \
-    ForgotPasswordSerializer, ShippingMethodSerializer, CardSerializer
+    ForgotPasswordSerializer, ShippingMethodSerializer, CardSerializer, ContactSerializer
 
 
 # ------------------------------------Register ------------------------------------------
@@ -165,3 +165,17 @@ class ValidateCardAPIView(APIView):
             return Response({"message": "Card is valid!"}, status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# -------------------------------contact us ----------------------------
+
+@extend_schema(tags=['Contact us'])
+class ContactAPIView(APIView):
+    queryset = Contact.objects.all()
+    serializer_class = ContactSerializer
+    def post(self, request, *args, **kwargs):
+        serializer = ContactSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": "Contact saved successfully", "data": serializer.data}, status=status.HTTP_201_CREATED)
+        return Response({"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+

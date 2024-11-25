@@ -13,7 +13,7 @@ from rest_framework.serializers import ModelSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from root import settings
-from .models import User, Address, Country, ShippingMethod, Card  # Import your custom User model
+from .models import User, Address, Country, ShippingMethod, Card, Contact, Cupon  # Import your custom User model
 
 redis_url = urlparse(settings.CELERY_BROKER_URL)
 
@@ -192,3 +192,12 @@ class CardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
         fields = ['card_number', 'valid_thru', 'card_name']
+
+
+# ----------------------------Contact---------------------------------
+
+class ContactSerializer(ModelSerializer):
+    class Meta:
+        model = Contact
+        exclude = ()
+
