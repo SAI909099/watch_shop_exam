@@ -179,3 +179,4 @@ class ContactAPIView(APIView):
             return Response({"message": "Contact saved successfully", "data": serializer.data}, status=status.HTTP_201_CREATED)
         return Response({"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
+
