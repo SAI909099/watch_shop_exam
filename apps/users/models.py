@@ -69,3 +69,10 @@ class Card(Model):
 
     def __str__(self):
         return self.card_name
+# ------------------contact us ------------------------
+
+class Contact(Model):
+    firs_name = CharField(max_length=250)
+    email = EmailField()
+    maessage = CharField()
+
