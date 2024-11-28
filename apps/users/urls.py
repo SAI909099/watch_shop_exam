@@ -3,7 +3,7 @@ from django.urls import path
 from .views import RegisterCreateAPIView, LoginAPIView, AddressListCreateAPIView, \
     AddressDestroyUpdateAPIView, CountryListAPIView, UserInfoListCreateAPIView, \
     PasswordResetConfirmView, ForgotPasswordView, ActivateUserView, ShippingMethodListView, \
-    ValidateCardAPIView, ContactAPIView
+    ValidateCardAPIView, ContactAPIView, ResetPasswordAPIView, ForgetPasswordAPIView
 
 urlpatterns = [
     path('register/', RegisterCreateAPIView.as_view(), name='register'),
@@ -14,7 +14,7 @@ urlpatterns = [
     path('address-update/<int:pk>', AddressDestroyUpdateAPIView.as_view(), name='address_update'),
     path('country-list', CountryListAPIView.as_view(), name='country'),
 
-    path('forgot-password/', ForgotPasswordView.as_view(), name='forgot-password'),
+    # path('forgot-password/', ForgotPasswordView.as_view(), name='forgot-password'),
     path('reset-password/', PasswordResetConfirmView.as_view(), name='reset-password'),
 
     path('activate/<uidb64>/<token>', ActivateUserView.as_view(), name='activate'),
@@ -24,6 +24,10 @@ urlpatterns = [
     path('validate-card/', ValidateCardAPIView.as_view(), name='validate-card'),
 
     path('contact/', ContactAPIView.as_view(),name='contact-us'),
+
+    path('forget-password/', ForgetPasswordAPIView.as_view(), name='forget-password'),
+    # path('forgot-password/', ForgotPasswordAPIView.as_view(), name='forgot-password'),
+    path('reset-password/<int:uid>/<str:token>/', ResetPasswordAPIView.as_view(), name='reset-password'),
 
     # path('wishlist/', WishlistAPIView.as_view(), name='wishlist'),
 

@@ -36,12 +36,14 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
 
-    'users',
-    'shops',
+    'apps.users',
+    'apps.shops',
 
     'rest_framework',
     'drf_spectacular',
     'rest_framework_simplejwt',
+    'django_filters',
+    'django_jsonform',
 ]
 
 MIDDLEWARE = [

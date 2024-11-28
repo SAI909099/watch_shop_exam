@@ -13,7 +13,7 @@ from rest_framework.serializers import ModelSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from root import settings
-from .models import User, Address, Country, ShippingMethod, Card, Contact, Cupon  # Import your custom User model
+from .models import User, Address, Country, ShippingMethod, Card, Contact
 
 redis_url = urlparse(settings.CELERY_BROKER_URL)
 
@@ -58,6 +58,35 @@ class RegisterUserModelSerializer(serializers.ModelSerializer):
             phone_number=validated_data.get('phone_number'),
         )
         return user
+# -----------------------------Forgot password -----------------------
+
+from rest_framework import serializers
+from django.core.exceptions import ValidationError
+from apps.users.models import User
+
+class ForgetPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate_email(self, email):
+        try:
+            user = User.objects.get(email=email)
+            if not user.is_active:
+                raise ValidationError("This email is not active.")
+        except User.DoesNotExist:
+            raise ValidationError("This email does not exist.")
+        return email
+
+from django.contrib.auth.password_validation import validate_password
+
+class ResetPasswordSerializer(serializers.Serializer):
+    new_password = serializers.CharField(write_only=True, validators=[validate_password])
+    confirm_password = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        if data['new_password'] != data['confirm_password']:
+            raise serializers.ValidationError("Passwords do not match.")
+        return data
+
 
 #---------------------------------User info -------------------------------
 

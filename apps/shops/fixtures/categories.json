@@ -1,0 +1,16 @@
+[
+    {
+        "model": "shops.categories",
+        "pk": 1,
+        "fields": {
+            "name": "watches"
+        }
+    },
+    {
+        "model": "shops.categories",
+        "pk": 2,
+        "fields": {
+            "name": "straps"
+        }
+    }
+]

@@ -5,6 +5,8 @@ mig:
 user:
 	python3 manage.py createsuperuser
 
+load_data:
+	python3 manage.py loaddata categories
 celery:
 	celery -A root worker --loglevel=info
 
@@ -14,3 +16,7 @@ flush:
 loaddata:
 	python3 manage.py loaddata country.json
 
+
+del_mig:
+	  find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+	  find . -path "*/migrations/*.pyc"  -delete

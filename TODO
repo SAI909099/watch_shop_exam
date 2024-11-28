@@ -1,0 +1,25 @@
+
+login register :
+    1.email bilan one time link  -> ✅
+    2. google gmail bilan kirish kere -> ✅
+    3. facebook bilan kirish kere -> ❌ Facebook ga ragister qilib bo'lmadi
+    4. forget password -> ?  qande ishlab turganini bilmiman  chalalekin ishlaybdi
+
+address :
+    1. address qo'shilish kere o'zgartirsa bo'lishi kere -> ✅
+    2. bu 1 ta user uchun tegishli bo'lish kere -> ✅
+    3. patch ni ishlatish -> ✅
+
+user:
+    1. My info -> ✅
+    2. address book  -> ✅
+    3. resent orders -> ?
+    4. shipping -> ✅
+
+Payment :
+    1.Credit card -> ✅
+    2.Payme or click -> atmen
+
+Contact us:
+    1.contact us -> ✅
+    2.cupon -> ?
