@@ -1,9 +1,11 @@
 from datetime import datetime
 
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.http import urlsafe_base64_decode
 from drf_spectacular.utils import extend_schema
-from rest_framework import status, mixins
+from rest_framework import mixins
+from rest_framework import status
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.generics import CreateAPIView, GenericAPIView, ListCreateAPIView, ListAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -11,11 +13,18 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from apps.users.models import User
 from .email_service import ActivationEmailService
-from .models import User, Address, Country, ShippingMethod, Card, Contact
+from .models import Address, Country, ShippingMethod, Card, Contact
 from .serializers import RegisterUserModelSerializer, LoginUserModelSerializer, AddressListModelSerializer, \
     CountryModelSerializer, UserInfoSerializer, PasswordResetConfirmSerializer, \
-    ForgotPasswordSerializer, ShippingMethodSerializer, CardSerializer, ContactSerializer
+    ForgotPasswordSerializer, ShippingMethodSerializer, CardSerializer, ContactSerializer, ForgetPasswordSerializer
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.contrib.auth import get_user_model
 
 
 # ------------------------------------Register ------------------------------------------
@@ -83,7 +92,6 @@ class ForgotPasswordView(GenericAPIView):
         serializer.save()
         return Response({"message": "Password reset link has been sent to your email."}, status=status.HTTP_200_OK)
 # --------------------
-# views.py
 class PasswordResetConfirmView(GenericAPIView):
     serializer_class = PasswordResetConfirmSerializer
     permission_classes = [AllowAny]
@@ -160,7 +168,6 @@ class ValidateCardAPIView(APIView):
             if valid_thru < datetime.now().date():
                 return Response({"error": "Card has expired."}, status=status.HTTP_400_BAD_REQUEST)
 
-            # Validation successful
             return Response({"message": "Card is valid!"}, status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -178,3 +185,55 @@ class ContactAPIView(APIView):
             return Response({"message": "Contact saved successfully", "data": serializer.data}, status=status.HTTP_201_CREATED)
         return Response({"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
+# --------------------------forgot password -------------------------
+
+@extend_schema(tags=['forget password'])
+class ForgetPasswordAPIView(APIView):
+    queryset = User.objects.all()
+    serializer_class = ForgetPasswordSerializer
+
+    def post(self, request):
+        email = request.data.get("email")
+        new_password = request.data.get("new_password")
+        confirm_password = request.data.get("confirm_password")
+
+        try:
+            user = User.objects.get(email=email)
+            if not user.is_active:
+                return Response({"error": "This email is not active."}, status=status.HTTP_400_BAD_REQUEST)
+        except User.DoesNotExist:
+            return Response({"error": "Email does not exist."}, status=status.HTTP_400_BAD_REQUEST)
+
+        if new_password != confirm_password:
+            return Response({"error": "Passwords do not match."}, status=status.HTTP_400_BAD_REQUEST)
+
+        user.password = make_password(new_password)
+        user.save()
+
+        return Response({"message": "Password updated successfully."}, status=status.HTTP_200_OK)
+
+
+User = get_user_model()
+
+
+class ResetPasswordAPIView(APIView):
+    def post(self, request, uid, token):
+        new_password = request.data.get('password')
+        if not new_password:
+            return Response({"error": "Password is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            user = User.objects.get(pk=uid)
+        except User.DoesNotExist:
+            return Response({"error": "Invalid user ID"}, status=status.HTTP_404_NOT_FOUND)
+
+        # Verify the token
+        token_generator = PasswordResetTokenGenerator()
+        if not token_generator.check_token(user, token):
+            return Response({"error": "Invalid or expired token"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Set the new password
+        user.set_password(new_password)
+        user.save()
+
+        return Response({"message": "Password reset successfully"}, status=status.HTTP_200_OK)

@@ -14,6 +14,7 @@ class User(AbstractUser):
     phone_number = CharField(max_length=15, null=True, blank=True)
     email = EmailField(unique=True)
     is_active = BooleanField(default=False)
+    reset_token = CharField(max_length=64, null=True, blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

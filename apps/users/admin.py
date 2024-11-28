@@ -1,9 +1,7 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 
-from apps.shops.models import Product
-from apps.users.models import User, Address
 from apps.users.forms import CustomAdminAuthenticationForm
+from apps.users.models import Address
 
 
 @admin.register(Address)
