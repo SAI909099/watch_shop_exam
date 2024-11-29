@@ -10,5 +10,11 @@ class Watches(ModelAdmin):
 @admin.register(Categories)
 class Categories(ModelAdmin):
     list_display = ('name',)
+#
+# @admin.register(Product)
+# class ProductAdmin(admin.ModelAdmin):
+#     pass
 
 
+class WishlistAdmin(admin.ModelAdmin):
+    pass

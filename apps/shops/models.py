@@ -1,5 +1,5 @@
-from django.db.models import CASCADE, CharField, Model, ForeignKey, TextField, DecimalField, ImageField,  \
-    BooleanField
+from django.db.models import CASCADE, CharField, Model, ForeignKey, TextField, DecimalField, ImageField, \
+    BooleanField, DateTimeField, PositiveIntegerField, OneToOneField
 from django_jsonform.models.fields import JSONField
 
 from apps.users.models import User
@@ -85,6 +85,10 @@ class Watches(Model):
     def __str__(self):
         return self.name
 
+from django.db import models
+from django.db.models import Model, TextChoices, TextField, ManyToManyField, CharField
+from rest_framework.fields import DecimalField
+
 
 class CustomWatch(Model):
     user = ForeignKey(User, on_delete=CASCADE)
@@ -97,3 +101,24 @@ class CustomWatch(Model):
 
     def __str__(self):
         return f"Custom Watch by {self.user}"
+
+#
+# class Product(Model):
+#     name = CharField(max_length=250)
+
+# --------------------------bilol ----------------------------------
+
+class Cart(Model):
+    user = ForeignKey(User, on_delete=CASCADE, related_name="cart")
+    created_at = DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Cart - {self.user}"
+
+class CartItem(Model):
+    cart = ForeignKey(Cart, on_delete=CASCADE, related_name="items")
+    watch = ForeignKey(Watches, on_delete=CASCADE)
+    quantity = PositiveIntegerField()
+
+    def __str__(self):
+        return f"{self.quantity} x {self.watch.name} in {self.cart}"

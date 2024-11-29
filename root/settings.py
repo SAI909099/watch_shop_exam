@@ -2,10 +2,12 @@ from os.path import join
 from pathlib import Path
 import sys
 import os
+
+from django.conf.global_settings import LOGIN_REDIRECT_URL
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(os.path.join(BASE_DIR, 'apps'))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -18,7 +20,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -28,6 +29,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # Required by allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 
     'apps.users',
     'apps.shops',
@@ -47,12 +54,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'root.urls'
 
 AUTH_USER_MODEL = 'users.User'
-
 
 TEMPLATES = [
     {
@@ -139,3 +146,40 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'sulaymonovabdulaziz1@gmail.com'
 EMAIL_HOST_PASSWORD = 'ramq ppur dgey jnfb'
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+}
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+SITE_ID = 1
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '185561495528-kvgj3hdft76637v8nf0ci7hspj6kueiv.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    },
+    'facebook': {
+        'APP': {
+            'client_id': '', #todo facebook tel ga sms kelmagani sababli ishlamayabdi
+            'secret': '',
+            'key': ''
+        }
+    }
+}
+
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_URL = 'login'
