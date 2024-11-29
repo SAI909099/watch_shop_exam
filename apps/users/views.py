@@ -34,6 +34,23 @@ class RegisterCreateAPIView(CreateAPIView):
 
 
 
+
+@extend_schema(tags=['Login_Register'])
+class LoginAPIView(GenericAPIView):
+    serializer_class = LoginUserModelSerializer
+    permission_classes = [AllowAny]
+    authentication_classes = ()
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        refresh = RefreshToken.for_user(user)
+        return Response({
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+        }, status=status.HTTP_200_OK)
+
 @extend_schema(tags=['Access-Token'])
 class ActivateUserView(APIView):
     def get(self, request, uidb64, token):
@@ -50,18 +67,6 @@ class ActivateUserView(APIView):
             return Response({"message": "User successfully verified!"})
         raise AuthenticationFailed('The link is invalid or expired.')
 
-@extend_schema(tags=['Login_Register'])
-class LoginAPIView(GenericAPIView):
-    serializer_class = LoginUserModelSerializer
-    permission_classes = [AllowAny]
-    authentication_classes = ()
 
-    def post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['users']
-        refresh = RefreshToken.for_user(user)
-        return Response({
-            'refresh': str(refresh),
-            'access': str(refresh.access_token),
-        }, status=status.HTTP_200_OK)
+
+
