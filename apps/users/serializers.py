@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 import redis
 from django.contrib.auth import authenticate
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core.exceptions import ValidationError
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from rest_framework import serializers
@@ -59,10 +60,6 @@ class RegisterUserModelSerializer(serializers.ModelSerializer):
         )
         return user
 # -----------------------------Forgot password -----------------------
-
-from rest_framework import serializers
-from django.core.exceptions import ValidationError
-from apps.users.models import User
 
 class ForgetPasswordSerializer(serializers.Serializer):
     email = serializers.EmailField()
@@ -220,9 +217,10 @@ class ShippingMethodSerializer(serializers.ModelSerializer):
 class CardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
-        fields = ['card_number', 'valid_thru', 'card_name']
-
-
+        fields = ['id', 'card_number', 'valid_thru', 'card_name']
+        extra_kwargs = {
+            'card_number': {'write_only': True},
+        }
 # ----------------------------Contact---------------------------------
 
 class ContactSerializer(ModelSerializer):
