@@ -3,7 +3,7 @@ from django.urls import path
 from .views import RegisterCreateAPIView, LoginAPIView, AddressListCreateAPIView, \
     AddressDestroyUpdateAPIView, CountryListAPIView, UserInfoListCreateAPIView, \
     PasswordResetConfirmView, ForgotPasswordView, ActivateUserView, ShippingMethodListView, \
-    ValidateCardAPIView, ContactAPIView, ResetPasswordAPIView, ForgetPasswordAPIView, CardListCreateAPIView
+    ValidateCardAPIView, ContactAPIView, ResetPasswordAPIView, ForgetPasswordAPIView
 
 urlpatterns = [
     path('register/', RegisterCreateAPIView.as_view(), name='register'),
@@ -22,7 +22,6 @@ urlpatterns = [
     path('shipping-methods/', ShippingMethodListView.as_view(), name='shipping-methods'),
 
     path('validate-card/', ValidateCardAPIView.as_view(), name='validate-card'),
-    path('cards/', CardListCreateAPIView.as_view(), name='card-list-create'),
 
     path('contact/', ContactAPIView.as_view(),name='contact-us'),
 

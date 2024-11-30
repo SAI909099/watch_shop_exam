@@ -1,6 +1,10 @@
+from datetime import timedelta
+import random
+
 from django.contrib.auth.models import AbstractUser
 from django.db.models import DateField, CharField, EmailField, BooleanField, ForeignKey, Model, CASCADE, \
-    PositiveIntegerField, RESTRICT, DecimalField, TextChoices
+    PositiveIntegerField, RESTRICT, DecimalField, TextChoices, DateTimeField
+from django.utils.timezone import now
 
 from .manager import CustomUserManager
 from ..shared.models import TimeBasedModel

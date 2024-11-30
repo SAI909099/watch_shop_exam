@@ -11,9 +11,9 @@ class Categories(Model):
 
     def __str__(self):
         return self.name
-
-class Country(Model):
-    name = CharField(max_length=150)
+#
+# class Country(Model):
+#     name = CharField(max_length=150)
 
 
 class Straps(Model):

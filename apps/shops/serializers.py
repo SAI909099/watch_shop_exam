@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 from rest_framework import serializers
-from rest_framework.fields import IntegerField, CurrentUserDefault
+from rest_framework.fields import IntegerField, CurrentUserDefault, SerializerMethodField
 from rest_framework.relations import PrimaryKeyRelatedField, StringRelatedField
 from rest_framework.serializers import ModelSerializer
 
@@ -84,23 +84,21 @@ class OrderSerializer(serializers.ModelSerializer):
         shipping_method = validated_data.get('shipping_method')
         cart = validated_data['cart']
 
-        # Calculate total amount based on shipping method
         item_total = sum(item.watch.price * item.quantity for item in cart.items.all())
-        shipping_cost = Decimal('0.00')  # Default to $0.00 for Standard shipping
+        shipping_cost = Decimal('0.00')
         if shipping_method.name == ShippingMethod.ShippingType.EXPRESS:
             shipping_cost = shipping_method.price
 
         total_amount = item_total + shipping_cost
 
-        # Create the order
         order = Order.objects.create(total_amount=total_amount, **validated_data)
         return order
 
 
-class OrderDetailSerializer(serializers.ModelSerializer):
-    shipping_method = serializers.StringRelatedField()
-    user = serializers.StringRelatedField()
-    cart_items = serializers.SerializerMethodField()
+class OrderDetailSerializer(ModelSerializer):
+    shipping_method = StringRelatedField()
+    user = StringRelatedField()
+    cart_items = SerializerMethodField()
 
     class Meta:
         model = Order

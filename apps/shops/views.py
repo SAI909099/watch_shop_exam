@@ -81,6 +81,8 @@ class RemoveCartItemView(DestroyAPIView):
 class OrderView(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = OrderSerializer
+    queryset = Order.objects.all()
+
 
     # def post(self, request, *args, **kwargs):
     #     cart= Cart.objects.get_or_create(user=request.user)
@@ -105,14 +107,27 @@ class OrderView(ListCreateAPIView):
     #
     #     return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@extend_schema(tags=["Order"])
+# @extend_schema(tags=["Order"])
+# class OrderDetailView(RetrieveAPIView):
+#     serializer_class = OrderDetailSerializer
+#     permission_classes = [IsAdminUser]
+#     queryset = Order.objects.all()
+#     lookup_field = 'id'
+#
+#     def get(self, request, *args, **kwargs):
+#         order = self.get_object()
+#         serializer = self.get_serializer(order)
+#         return Response(serializer.data)
+#
+@extend_schema(tags=["_Order_"])
 class OrderDetailView(RetrieveAPIView):
     serializer_class = OrderDetailSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
     queryset = Order.objects.all()
     lookup_field = 'id'
 
-    def get(self, request, *args, **kwargs):
-        order = self.get_object()
-        serializer = self.get_serializer(order)
-        return Response(serializer.data)
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_staff:
+            return Order.objects.all()
+        return Order.objects.filter(user=user)

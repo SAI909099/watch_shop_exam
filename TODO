@@ -25,19 +25,6 @@ Contact us:
     2.cupon -> ?
 
 
-recent orders :
-
-
-kamchiliklar :
-    custom watch ishlamayabdi
-    forget password
-    wathes models ga country qoshish kere
-
-
-
-filter search:
-
-
 
 
 cart ni to'g'irlash kere:
@@ -234,3 +221,19 @@ class Card(Model):
 
     def __str__(self):
         return self.card_name
+
+
+
+
+recent orders :
+
+
+kamchiliklar :
+    custom watch ishlamayabdi
+    forget password
+    wathes models ga country qoshish kere
+
+
+
+filter search:
+
