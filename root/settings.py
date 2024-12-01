@@ -9,10 +9,6 @@ from django.conf.global_settings import LOGIN_REDIRECT_URL
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(os.path.join(BASE_DIR, 'apps'))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-e_116ojfj0g02@sd9f@$7s$4a&i88_f&$&#gquax6z$y%v%b8x'
 
 # SECURITY WARNING: don't run with debug turned on in production!

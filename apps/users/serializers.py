@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 import redis
 from django.contrib.auth import authenticate
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core.exceptions import ValidationError
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from rest_framework import serializers
@@ -21,48 +22,29 @@ redis_url = urlparse(settings.CELERY_BROKER_URL)
 r = redis.StrictRedis(host=redis_url.hostname, port=redis_url.port, db=int(redis_url.path.lstrip('/')))
 
 # --------------------Register---------------------------------------------------
-class RegisterUserModelSerializer(serializers.ModelSerializer):
-    confirm_email = serializers.EmailField(write_only=True)
+class RegisterSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
     confirm_password = serializers.CharField(write_only=True)
 
     class Meta:
         model = User
-        fields = [
-            'first_name', 'last_name', 'date_of_birth', 'phone_number',
-            'email', 'confirm_email', 'password', 'confirm_password'
-        ]
-        extra_kwargs = {
-            'password': {'write_only': True},
-        }
+        fields = ['first_name', 'last_name', 'date_of_birth', 'phone_number', 'email', 'password', 'confirm_password']
 
     def validate(self, data):
-        if data['email'] != data['confirm_email']:
-            raise serializers.ValidationError("Email addresses do not match.")
-
         if data['password'] != data['confirm_password']:
-            raise serializers.ValidationError("Passwords do not match.")
-
+            raise serializers.ValidationError("Passwords do not match")
         return data
 
     def create(self, validated_data):
-        # Remove fields that aren't part of the model
-        validated_data.pop('confirm_email')
         validated_data.pop('confirm_password')
-
-        user = User.objects.create_user(
-            email=validated_data['email'],
-            password=validated_data['password'],
-            first_name=validated_data['first_name'],
-            last_name=validated_data['last_name'],
-            date_of_birth=validated_data.get('date_of_birth'),
-            phone_number=validated_data.get('phone_number'),
-        )
+        user = User.objects.create_user(**validated_data)
         return user
-# -----------------------------Forgot password -----------------------
 
-from rest_framework import serializers
-from django.core.exceptions import ValidationError
-from apps.users.models import User
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    verification_code = serializers.CharField(write_only=True)
+
+# -----------------------------Forgot password -----------------------
 
 class ForgetPasswordSerializer(serializers.Serializer):
     email = serializers.EmailField()

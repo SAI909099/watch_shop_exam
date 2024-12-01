@@ -1,8 +1,9 @@
 from django.db.models import CASCADE, CharField, Model, ForeignKey, TextField, DecimalField, ImageField, \
     BooleanField, DateTimeField, PositiveIntegerField, OneToOneField
 from django_jsonform.models.fields import JSONField
+from decimal import Decimal
 
-from apps.users.models import User
+from apps.users.models import User, ShippingMethod
 
 
 class Categories(Model):
@@ -10,6 +11,9 @@ class Categories(Model):
 
     def __str__(self):
         return self.name
+#
+# class Country(Model):
+#     name = CharField(max_length=150)
 
 
 class Straps(Model):
@@ -102,18 +106,21 @@ class CustomWatch(Model):
     def __str__(self):
         return f"Custom Watch by {self.user}"
 
-#
-# class Product(Model):
-#     name = CharField(max_length=250)
 
 # --------------------------bilol ----------------------------------
 
-class Cart(Model):
-    user = ForeignKey(User, on_delete=CASCADE, related_name="cart")
-    created_at = DateTimeField(auto_now_add=True)
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="cart")
+    created_at = models.DateTimeField(auto_now_add=True)
+    shipping_method = models.ForeignKey('users.ShippingMethod',on_delete=models.SET_NULL,null=True,blank=True,related_name='carts')
 
     def __str__(self):
         return f"Cart - {self.user}"
+
+    def calculate_total(self):
+        item_total = sum(Decimal(cart_item.watch.price) * cart_item.quantity for cart_item in self.items.all())
+        shipping_cost = Decimal(self.shipping_method.price) if self.shipping_method else Decimal('25.00')
+        return item_total + shipping_cost
 
 class CartItem(Model):
     cart = ForeignKey(Cart, on_delete=CASCADE, related_name="items")
@@ -122,3 +129,14 @@ class CartItem(Model):
 
     def __str__(self):
         return f"{self.quantity} x {self.watch.name} in {self.cart}"
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
+    cart = models.ForeignKey('Cart', on_delete=models.CASCADE)
+    shipping_method = models.ForeignKey('users.ShippingMethod', on_delete=models.SET_NULL, null=True)
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    card = models.ForeignKey('users.Card', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Order {self.id} by {self.user}"
