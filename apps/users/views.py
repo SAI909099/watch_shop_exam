@@ -1,5 +1,8 @@
+import random
+import string
 from datetime import datetime
 
+from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.http import urlsafe_base64_decode
@@ -7,49 +10,69 @@ from drf_spectacular.utils import extend_schema
 from rest_framework import mixins
 from rest_framework import status
 from rest_framework.exceptions import AuthenticationFailed
-from rest_framework.generics import CreateAPIView, GenericAPIView, ListCreateAPIView, ListAPIView
+from rest_framework.generics import GenericAPIView, ListCreateAPIView, ListAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.users.models import User
-from .email_service import ActivationEmailService
 from .models import Address, Country, ShippingMethod, Card, Contact
-from .serializers import RegisterUserModelSerializer, LoginUserModelSerializer, AddressListModelSerializer, \
+from .serializers import AddressListModelSerializer, \
     CountryModelSerializer, UserInfoSerializer, PasswordResetConfirmSerializer, \
-    ForgotPasswordSerializer, ShippingMethodSerializer, CardSerializer, ContactSerializer, ForgetPasswordSerializer
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
-from django.contrib.auth import get_user_model
+    ForgotPasswordSerializer, ShippingMethodSerializer, CardSerializer, ContactSerializer, ForgetPasswordSerializer, \
+    RegisterSerializer, LoginSerializer, LoginUserModelSerializer
+from .tasks import send_verification_email
 
 
 # ------------------------------------Register ------------------------------------------
-@extend_schema(tags=['Login_Register'])
-class RegisterCreateAPIView(CreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = RegisterUserModelSerializer
-    permission_classes = AllowAny,
-    authentication_classes = ()
+@extend_schema(tags=['Login-Register'])
+class RegisterAPIView(APIView):
+    serializer_class = RegisterSerializer
+    # permission_classes = (AllowAny,)
 
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.save()
-        response = {
-            'message': 'Successfully registered!'
-        }
-        activation_service = ActivationEmailService(user, request._current_scheme_host)
-        activation_service.send_activation_email()
-        return Response(response, status.HTTP_201_CREATED)
+    # Register a new user
+    def post(self, request):
+        serializer = RegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
 
+            # Generate a random 6-digit verification code
+            verification_code = ''.join(random.choices(string.digits, k=6))
+            user.reset_token = verification_code
+            user.save()
 
-# ---------------------------------Login ----------------------------------------------
+            # Send the email asynchronously with Celery
+            send_verification_email.delay(user.email, verification_code)
 
-@extend_schema(tags=['Login_Register'])
+            return Response({"message": "User registered successfully. Check your email for the verification code."}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+from rest_framework.response import Response
+@extend_schema(tags=['Login-Register'])
+class VerifyEmailAPIView(APIView):
+    serializer_class = LoginSerializer
+
+    def post(self, request):
+        # print("Request data:", request.data)  # Debugging the incoming data
+        email = request.data.get('email')
+        verification_code = request.data.get('verification_code') or request.data.get('password')  # Temporary fix
+
+        # print("Request data:", request.data)  # This should now include 'verification_code'
+        # print("Verification Code:", request.data.get('verification_code'))
+
+        if not email or not verification_code:
+            return Response({"error": "Email and verification code are required."}, status=400)
+
+        try:
+            user = User.objects.get(email=email, reset_token=verification_code)
+            user.is_active = True
+            user.reset_token = ''
+            user.save()
+            return Response({"message": "Email verified successfully."}, status=200)
+        except User.DoesNotExist:
+            return Response({"error": "Invalid email or verification code."}, status=400)
+
+@extend_schema(tags=['Login-Register'])
 class LoginAPIView(GenericAPIView):
     serializer_class = LoginUserModelSerializer
     permission_classes = [AllowAny]
@@ -239,15 +262,4 @@ class ResetPasswordAPIView(APIView):
         user.save()
 
         return Response({"message": "Password reset successfully"}, status=status.HTTP_200_OK)
-
-
-class CardListCreateAPIView(ListCreateAPIView):
-    serializer_class = CardSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        return Card.objects.filter(user=self.request.user)
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
 

@@ -22,43 +22,28 @@ redis_url = urlparse(settings.CELERY_BROKER_URL)
 r = redis.StrictRedis(host=redis_url.hostname, port=redis_url.port, db=int(redis_url.path.lstrip('/')))
 
 # --------------------Register---------------------------------------------------
-class RegisterUserModelSerializer(serializers.ModelSerializer):
-    confirm_email = serializers.EmailField(write_only=True)
+class RegisterSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
     confirm_password = serializers.CharField(write_only=True)
 
     class Meta:
         model = User
-        fields = [
-            'first_name', 'last_name', 'date_of_birth', 'phone_number',
-            'email', 'confirm_email', 'password', 'confirm_password'
-        ]
-        extra_kwargs = {
-            'password': {'write_only': True},
-        }
+        fields = ['first_name', 'last_name', 'date_of_birth', 'phone_number', 'email', 'password', 'confirm_password']
 
     def validate(self, data):
-        if data['email'] != data['confirm_email']:
-            raise serializers.ValidationError("Email addresses do not match.")
-
         if data['password'] != data['confirm_password']:
-            raise serializers.ValidationError("Passwords do not match.")
-
+            raise serializers.ValidationError("Passwords do not match")
         return data
 
     def create(self, validated_data):
-        # Remove fields that aren't part of the model
-        validated_data.pop('confirm_email')
         validated_data.pop('confirm_password')
-
-        user = User.objects.create_user(
-            email=validated_data['email'],
-            password=validated_data['password'],
-            first_name=validated_data['first_name'],
-            last_name=validated_data['last_name'],
-            date_of_birth=validated_data.get('date_of_birth'),
-            phone_number=validated_data.get('phone_number'),
-        )
+        user = User.objects.create_user(**validated_data)
         return user
+
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    verification_code = serializers.CharField(write_only=True)
+
 # -----------------------------Forgot password -----------------------
 
 class ForgetPasswordSerializer(serializers.Serializer):
@@ -217,19 +202,13 @@ class ShippingMethodSerializer(serializers.ModelSerializer):
 class CardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
-        fields = ['id', 'card_number', 'valid_thru', 'card_name']
-        extra_kwargs = {
-            'card_number': {'write_only': True},
-        }
+        fields = ['card_number', 'valid_thru', 'card_name']
+
+
 # ----------------------------Contact---------------------------------
 
 class ContactSerializer(ModelSerializer):
     class Meta:
         model = Contact
         exclude = ()
-
-
-
-
-
 

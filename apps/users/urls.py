@@ -1,13 +1,16 @@
 from django.urls import path
 
-from .views import RegisterCreateAPIView, LoginAPIView, AddressListCreateAPIView, \
+from .views import AddressListCreateAPIView, \
     AddressDestroyUpdateAPIView, CountryListAPIView, UserInfoListCreateAPIView, \
-    PasswordResetConfirmView, ForgotPasswordView, ActivateUserView, ShippingMethodListView, \
-    ValidateCardAPIView, ContactAPIView, ResetPasswordAPIView, ForgetPasswordAPIView
+    PasswordResetConfirmView, ActivateUserView, ShippingMethodListView, \
+    ValidateCardAPIView, ContactAPIView, ResetPasswordAPIView, ForgetPasswordAPIView, VerifyEmailAPIView, \
+    RegisterAPIView, LoginAPIView
 
 urlpatterns = [
-    path('register/', RegisterCreateAPIView.as_view(), name='register'),
-    path('login/', LoginAPIView.as_view(), name = 'login' ),
+    path('register/', RegisterAPIView.as_view(), name='register'),
+    # path('login/', LoginAPIView.as_view(), name='login'),
+    path('verify-email/', VerifyEmailAPIView.as_view(), name='verify-email'),
+    path('login/' ,LoginAPIView.as_view(), name='login'),
     path('user-detail/', UserInfoListCreateAPIView.as_view(), name='user-detail' ),
 
     path('address/', AddressListCreateAPIView.as_view(), name = 'address'),
