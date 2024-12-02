@@ -5,9 +5,13 @@ from rest_framework.fields import IntegerField
 from rest_framework.relations import PrimaryKeyRelatedField, StringRelatedField, SlugRelatedField
 from rest_framework.serializers import ModelSerializer
 
-from apps.shops.models import Cart, CartItem
+from apps.shops.models import Cart, CartItem, Categories
 from apps.shops.models import Watches, CustomWatch
 
+class CategoryModelSerializer(ModelSerializer):
+    class Meta:
+        model = Categories
+        fields = 'name',
 
 class WatchListSerializer(serializers.ModelSerializer):
     category_name = SlugRelatedField(source='category',slug_field='name', read_only=True)
@@ -64,7 +68,7 @@ class CartItemSerializer(ModelSerializer):
 
     class Meta:
         model = CartItem
-        fields = ['id', 'watch', 'quantity']
+        fields = ('id', 'watch', 'quantity',)
 
 
 class CartSerializer(ModelSerializer):
@@ -73,3 +77,13 @@ class CartSerializer(ModelSerializer):
     class Meta:
         model = Cart
         fields = ['id', 'created_at', 'items']  # List cart fields and nested items
+
+
+class WatchDetailSerializer(ModelSerializer):
+    category_name = CategoryModelSerializer(read_only=True)\
+
+    class Meta:
+        model = Watches
+        fields = ('name', 'category_name','price','about','case_color','dial_design',
+                  'strap_design','specification',
+                  )

@@ -1,5 +1,6 @@
 from drf_spectacular.utils import extend_schema
-from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, \
+    ListCreateAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
 from apps.shared.authenticated import CustomIsAuthenticated
@@ -7,7 +8,7 @@ from apps.shared.paginations import CustomPageNumberPagination
 from apps.shops.models import Cart, CartItem
 from apps.shops.models import Watches, CustomWatch
 from apps.shops.serializers import WatchListSerializer, CustomWatchSerializer, \
-    AddCartItemSerializer, CartSerializer
+    AddCartItemSerializer, CartSerializer, WatchDetailSerializer
 
 
 @extend_schema(tags=['watch_list'])
@@ -16,6 +17,12 @@ class WatchListApiView(ListAPIView):
     serializer_class = WatchListSerializer
     permission_class = AllowAny,
     pagination_class = CustomPageNumberPagination
+
+@extend_schema(tags=['watch_detail'])
+class WatchDetailListAPIView(ListCreateAPIView):
+    queryset = Watches.objects.all()
+    serializer_class = WatchDetailSerializer
+    permission_class = AllowAny,
 
 
 @extend_schema(tags=['custom_watch'])

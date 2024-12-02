@@ -1,5 +1,5 @@
-from django.db.models import CASCADE, CharField, Model, ForeignKey, TextField, DecimalField, ImageField, \
-    BooleanField, DateTimeField, PositiveIntegerField, OneToOneField
+from django.db.models import CASCADE, Model, ForeignKey, ImageField, \
+    BooleanField, DateTimeField, PositiveIntegerField,TextField, CharField,DecimalField
 from django_jsonform.models.fields import JSONField
 
 from apps.users.models import User
@@ -29,43 +29,43 @@ class Watches(Model):
                 'type': 'string',
                 'title': 'Coating',
             },
-            'glass':{
+            'glass': {
                 'type': 'string',
                 'title': 'Glass',
             },
-            'straps':{
+            'straps': {
                 'type': 'string',
                 "title": "Straps",
             },
-            'case_size':{
+            'case_size': {
                 'type': 'string',
                 'title': 'Case size',
             },
-            'case_color':{
+            'case_color': {
                 'type': 'string',
                 'title': 'Case color',
             },
-            'dial_color':{
+            'dial_color': {
                 'type': 'string',
                 'title': 'Dial color',
             },
-            'water_resistance':{
+            'water_resistance': {
                 'type': 'string',
                 'title': 'Water resistance',
             },
-            'straps_type':{
+            'straps_type': {
                 'type': 'string',
                 "title": "Straps",
             },
-            'movement':{
-                'type':'string',
-                'title':'Movement',
+            'movement': {
+                'type': 'string',
+                'title': 'Movement',
             },
-            'instantaneous_rate':{
+            'instantaneous_rate': {
                 'type': 'string',
                 'title': 'Instantaneous rate',
             },
-            'standard_battery_life':{
+            'standard_battery_life': {
                 'type': 'string',
                 'title': 'Standard battery life',
             }
@@ -79,16 +79,14 @@ class Watches(Model):
     case_color = CharField(max_length=50)
     dial_design = CharField(max_length=50)
     strap_design = CharField(max_length=50)
-    image = ImageField(upload_to='products/%Y/%m/%d')
     specification = JSONField(schema=SCHEMA)
 
     def __str__(self):
         return self.name
 
-from django.db import models
-from django.db.models import Model, TextChoices, TextField, ManyToManyField, CharField
-from rest_framework.fields import DecimalField
-
+class ImagesModel(Model):
+    watches = ForeignKey(Watches, on_delete=CASCADE, related_name='images')
+    image = ImageField(upload_to='products/%Y/%m/%d')
 
 class CustomWatch(Model):
     user = ForeignKey(User, on_delete=CASCADE)
@@ -102,6 +100,7 @@ class CustomWatch(Model):
     def __str__(self):
         return f"Custom Watch by {self.user}"
 
+
 #
 # class Product(Model):
 #     name = CharField(max_length=250)
@@ -114,6 +113,7 @@ class Cart(Model):
 
     def __str__(self):
         return f"Cart - {self.user}"
+
 
 class CartItem(Model):
     cart = ForeignKey(Cart, on_delete=CASCADE, related_name="items")
