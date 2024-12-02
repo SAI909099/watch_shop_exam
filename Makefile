@@ -6,15 +6,16 @@ user:
 	python3 manage.py createsuperuser
 
 load_data:
-	python3 manage.py loaddata categories
+	python3 manage.py loaddata categories.json
+	python3 manage.py loaddata country.json
+	python3 manage.py loaddata watches_fixture.json
 celery:
 	celery -A root worker --loglevel=info
 
 flush:
 	python3 manage.py flush --no-input
 
-loaddata:
-	python3 manage.py loaddata country.json
+
 
 
 del_mig:

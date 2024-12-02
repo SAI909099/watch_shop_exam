@@ -5,7 +5,7 @@ from apps.users.models import Address
 
 
 @admin.register(Address)
-class Addressadmin(admin.ModelAdmin):
+class AddressAdmin(admin.ModelAdmin):
     pass
 
 

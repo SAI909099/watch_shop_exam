@@ -1,6 +1,8 @@
+from unicodedata import category
+
 from rest_framework import serializers
 from rest_framework.fields import IntegerField
-from rest_framework.relations import PrimaryKeyRelatedField, StringRelatedField
+from rest_framework.relations import PrimaryKeyRelatedField, StringRelatedField, SlugRelatedField
 from rest_framework.serializers import ModelSerializer
 
 from apps.shops.models import Cart, CartItem
@@ -8,9 +10,12 @@ from apps.shops.models import Watches, CustomWatch
 
 
 class WatchListSerializer(serializers.ModelSerializer):
+    category_name = SlugRelatedField(source='category',slug_field='name', read_only=True)
+
     class Meta:
         model = Watches
-        fields = '__all__'
+        fields = ['price', 'name', 'category_name']
+
 
 class CustomWatchSerializer(serializers.ModelSerializer):
     class Meta:
@@ -52,7 +57,6 @@ class AddCartItemSerializer(ModelSerializer):
         instance.quantity = validated_data.get('quantity', instance.quantity)
         instance.save()
         return instance
-
 
 
 class CartItemSerializer(ModelSerializer):
